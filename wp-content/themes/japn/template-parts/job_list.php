@@ -36,13 +36,37 @@ get_header('no_transparent');
                                                     href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
                                             <li class="breadcrumb-item active">
                                                 <?php 
-                                                if(isset($_GET['district_val']))
-                                                {
-                                                    echo $_GET['district_val'] . 'の';
+                                                if($_GET['district_vals'] == '1') {
+                                                    $condition = '北海道地方';
                                                 }
-                                                else if(isset($_GET['district_vals']))
+                                                if($_GET['district_vals'] == '2') {
+                                                    $condition .= '中部地方';
+                                                }
+                                                if($_GET['district_vals'] == '3') {
+                                                    $condition .= '関東地方';
+                                                }
+                                                if($_GET['district_vals'] == '4') {
+                                                    $condition .= '九州地方';
+                                                }
+                                                if($_GET['district_vals'] == '5') {
+                                                    $condition .= '四国地方';
+                                                }
+                                                if($_GET['district_vals'] == '6') {
+                                                    $condition .= '沖縄地方';
+                                                }
+                                                if($_GET['district_vals'] == '7') {
+                                                    $condition .= '東北地方';
+                                                }
+                                                if($_GET['district_vals'] == '8') {
+                                                    $condition .= '近畿地方';
+                                                }
+                                                if($_GET['district_vals'] == '9') {
+                                                    $condition .= '中国地方';
+                                                }
+                                               
+                                                if(!empty($_GET['district_vals']) )
                                                 {
-                                                    echo $_GET['district_vals'] . 'の';
+                                                    echo $condition . 'の';
                                                 }                                                
                                                 ?>お仕事情報
                                             </li>
@@ -51,14 +75,11 @@ get_header('no_transparent');
                                     <div class="inner-title-ip">
                                         <h2>
                                             <?php 
-                                                if(isset($_GET['district_val']))
+                                                if(!empty($_GET['district_val']))
                                                 {
                                                     echo $_GET['district_val'] . 'の';
                                                 }
-                                                else if(isset($_GET['district_vals']))
-                                                {
-                                                    echo $_GET['district_vals'] . 'の';
-                                                }                                                
+                                                                                           
                                                 ?>
                                             お仕事情報
                                         </h2>
@@ -90,6 +111,9 @@ get_header('no_transparent');
                                                             <option value="1"
                                                                 <?php echo($_GET['district_vals'] == '1' ? 'selected' : '' ) ?>>
                                                                 北海道</option>
+                                                            <option value="7"
+                                                                <?php echo($_GET['district_vals'] == '7' ? 'selected' : '' ) ?>>
+                                                                東北地方</option>
                                                             <option value="2"
                                                                 <?php echo($_GET['district_vals'] == '2' ? 'selected' : '' ) ?>>
                                                                 中部地方</option>
@@ -101,15 +125,23 @@ get_header('no_transparent');
                                                                 九州地方</option>
                                                             <option value="5"
                                                                 <?php echo($_GET['district_vals'] == '5' ? 'selected' : '' ) ?>>
-                                                                関西地方</option>
+                                                                四国地方</option>
+                                                            <option value="8"
+                                                                <?php echo($_GET['district_vals'] == '8' ? 'selected' : '' ) ?>>
+                                                                近畿地方</option>
+                                                            <option value="9"
+                                                                <?php echo($_GET['district_vals'] == '9' ? 'selected' : '' ) ?>>
+                                                                中国地方</option>
                                                             <option value="6"
                                                                 <?php echo($_GET['district_vals'] == '6' ? 'selected' : '' ) ?>>
                                                                 沖縄地方</option>
+
                                                         </select>
                                                     </div>
                                                     <div class="banner-select-hp">
                                                         <select class="custom-select border" id="district_val">
                                                             <option value="">都道府県</option>
+                                                            <?php if(empty($_GET['district_vals'])) { ?>
                                                             <option value="東京都"
                                                                 <?php echo($_GET['district_val'] == '東京都' ? 'selected' : '' ) ?>>
                                                                 東京都</option>
@@ -248,6 +280,37 @@ get_header('no_transparent');
                                                             <option value="沖縄県"
                                                                 <?php echo($_GET['district_val'] == '沖縄県' ? 'selected' : '' ) ?>>
                                                                 沖縄県</option>
+                                                            <?php } else {
+                                                                $districts = $_GET['district_vals'];
+                                                                $dis_array = array();
+                                                                if($districts == '1') {
+                                                                    $dis_array =array('北海道');
+                                                                } else if($districts == '2') {
+                                                                    $dis_array = array('新潟県', '富山県', '石川県', '福井県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県' );
+                                                                } else if($districts == '3') {
+                                                                    $dis_array = array('茨城県', '栃木县', '群马县', '埼玉县', '千叶县', '東京都', '神奈川县');
+                                                                } else if($districts == '4') {
+                                                                    $dis_array = array('福岡県', '佐賀県', '長崎県', '熊本県', '大分县', '宮崎県', '鹿儿岛县');
+                                                                } else if($districts == '5') {
+                                                                    $dis_array = array('徳島県', '香川県', '愛媛県', '高知県');
+                                                                } else if($districts == '6') {
+                                                                    $dis_array = array('沖縄県');
+                                                                } else if($districts == '7') {
+                                                                    $dis_array = array('青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県');
+                                                                }
+                                                                else if($districts == '8') {
+                                                                    $dis_array = array('三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県');
+                                                                }
+                                                                else if($districts == '9') {
+                                                                    $dis_array = array('鳥取県', '島根県', '岡山県', '広島県', '山口県');
+                                                                }
+                                                                foreach ($dis_array as $dist) { ?>
+                                                            <option value="<?php echo $dist?>"
+                                                                <?php echo($dist == $_GET['district_val'] ? 'selected' : '' ) ?>>
+                                                                <?php echo $dist ?></option>
+                                                            <?php }
+                                                            } ?>
+
                                                         </select>
                                                     </div>
                                                     <div class="banner-select-hp">
@@ -358,6 +421,15 @@ get_header('no_transparent');
                                                         if($_GET['district_vals'] == '6') {
                                                             $condition .= '沖縄地方';
                                                         }
+                                                        if($_GET['district_vals'] == '7') {
+                                                            $condition .= '東北地方';
+                                                        }
+                                                        if($_GET['district_vals'] == '8') {
+                                                            $condition .= '近畿地方';
+                                                        }
+                                                        if($_GET['district_vals'] == '9') {
+                                                            $condition .= '中国地方';
+                                                        }
                                                     } 
                                                     if($job_ty) {
                                                       if($condition != '') {
@@ -401,12 +473,12 @@ get_header('no_transparent');
                                             $pageSize = 5;
                                             $page = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
                                             $first = ($page - 1) * $pageSize + 1;
-                                            $district = isset($_GET['district_val']) ? $_GET['district_val'] : '';
-                                            $districts = isset($_GET['district_vals']) ? $_GET['district_vals'] : '';
-                                            $job_type = isset($_GET['job_type']) ? $_GET['job_type'] : '';
-                                            $job_spec = isset($_GET['job_spec']) ? $_GET['job_spec'] : '';
-                                            $job_keyword = isset($_GET['job_keyword']) ? $_GET['job_keyword'] : '';
-                                            $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : 'date';
+                                            $district = empty($_GET['district_val']) ? $_GET['district_val'] : '';
+                                            $districts = empty($_GET['district_vals']) ? $_GET['district_vals'] : '';
+                                            $job_type = empty($_GET['job_type']) ? $_GET['job_type'] : '';
+                                            $job_spec = empty($_GET['job_spec']) ? $_GET['job_spec'] : '';
+                                            $job_keyword = empty($_GET['job_keyword']) ? $_GET['job_keyword'] : '';
+                                            $orderby = empty($_GET['orderby']) ? $_GET['orderby'] : 'date';
                                             $qry = array();
                                             $qry['relation'] = 'AND';
                                             if($districts) {
@@ -417,15 +489,23 @@ get_header('no_transparent');
                                                 if($districts == '1') {
                                                     $dis_array =array('北海道');
                                                 } else if($districts == '2') {
-                                                    $dis_array = array('长野县', '山梨县', '新潟县', '富山县', '石川县', '福井县', '静冈县', '爱知县', '岐阜县' );
+                                                    $dis_array = array('新潟県', '富山県', '石川県', '福井県', '福井県', '山梨県', '長野県', '岐阜県', '静岡県', '愛知県' );
                                                 } else if($districts == '3') {
-                                                    $dis_array = array('茨城县', '栃木县', '群马县', '埼玉县', '千叶县', '東京都', '神奈川县');
+                                                    $dis_array = array('茨城県', '栃木县', '群马县', '埼玉县', '千叶县', '東京都', '神奈川县');
                                                 } else if($districts == '4') {
-                                                    $dis_array = array('福冈县', '佐贺县', '长崎县', '熊本县', '大分县', '宫崎县', '鹿儿岛县', '冲绳县');
+                                                    $dis_array = array('福岡県', '佐賀県', '長崎県', '熊本県', '大分县', '宮崎県', '鹿儿岛县');
                                                 } else if($districts == '5') {
-                                                    $dis_array = array('滋贺县', '京都府', '大阪府', '兵库县', '奈良县', '三重县', '和歌山县');
+                                                    $dis_array = array('徳島県', '香川県', '愛媛県', '高知県');
                                                 } else if($districts == '6') {
-                                                    $dis_array = array('德岛县', '香川县', '爱媛县', '高知县');
+                                                    $dis_array = array('沖縄県');
+                                                } else if($districts == '7') {
+                                                    $dis_array = array('青森県', '岩手県', '宮城県', '秋田県', '山形県', '福島県');
+                                                }
+                                                else if($districts == '8') {
+                                                    $dis_array = array('三重県', '滋賀県', '京都府', '大阪府', '兵庫県', '奈良県', '和歌山県');
+                                                }
+                                                else if($districts == '9') {
+                                                    $dis_array = array('鳥取県', '島根県', '岡山県', '広島県', '山口県');
                                                 }
                                                 $qry[] = array(
                                                     'key'	 	=> 'addressRegion',
@@ -867,5 +947,15 @@ $(document).ready(function() {
         url += '&job_keyword=' + $('#job_keyword').val();
         self.location = url;
     });
+    $('#district_vals').on('change', function(){
+        // console.log($(this).val())
+        var url = "<?php  the_permalink();?>?";
+        url += 'district_vals=' + $(this).val();
+        // url += '&district_val=' + ;
+        url += '&job_type=' + $('#job_type').val();
+        url += '&job_spec=' + $('#job_spec').val();
+        url += '&job_keyword=' + $('#job_keyword').val();
+        self.location = url;
+    })
 })
 </script>
