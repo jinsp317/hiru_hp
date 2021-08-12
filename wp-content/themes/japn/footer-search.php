@@ -71,7 +71,7 @@
                             </a>
                         </div>
                         <div class="daytime-bottom-parts-hp white-border-hp">
-                            <a href="<?php echo get_site_url() ?>/interview_list">
+                            <a href="<?php echo get_site_url() ?>/on_off_line">
                                 <div class="daytime-bottom-parts-in-hp">
                                     <div class="daytime-bottom-parts-in-details-hp">
                                         <h2>

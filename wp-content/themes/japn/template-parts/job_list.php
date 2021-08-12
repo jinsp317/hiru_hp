@@ -332,8 +332,7 @@ get_header('no_transparent');
                                                         <?php $job_spec = $_GET['job_spec']; ?>
                                                         <select class="custom-select border"
                                                             data-placeholder="特長コードから探す" id="job_spec" size="1"
-                                                            multiple>
-                                                            <option value="">特長コードから探す</option>
+                                                            multiple>                                                            
                                                             <option value="駅チカ"
                                                                 <?php 
                                                                 // echo strpos($job_spec, '駅チカ');
@@ -561,7 +560,6 @@ get_header('no_transparent');
                                                 $args = array(
                                                     'post_type' => 'job', 
                                                     'meta_query' => $qry,                                                    
-                                                    'paged' => $page,  
                                                     'paged' => $page,  
                                                     's' => $job_keyword,
                                                     'posts_per_page' => $pageSize

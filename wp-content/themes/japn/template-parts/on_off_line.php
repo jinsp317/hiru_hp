@@ -54,121 +54,47 @@ get_header('no_transparent'); ?>
                                     </div>
                                     <div class="interview-list-main-op">
                                         <h3>オフライン面談の場合</h3>
+                                        <?php
+                                         $args = array('post_type' => 'interview', 
+                                         'meta_query' => array(
+                                             array('key' => 'interview_kind', 
+                                             'value' => 'オフライン', 
+                                             'compare' => '=')
+                                         ), 'posts_per_page' => 10);
+                                         $the_query = new WP_Query($args);
+                                         
+                                          ?>
                                         <div class="interview-list-in-op">
+                                            <?php if ($the_query->have_posts()): ?>
+                                            <?php while ($the_query->have_posts()): $the_query->the_post();?>
                                             <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img.png"
-                                                            alt="" />
+                                            <a
+                                                href="<?php echo get_site_url() ?>/interview_details?id=<?php the_ID() ?>">
+                                                <div class="pickup-box-img-hp">
+                                                    <?php 
+                                                    $logo = get_field('main_image'); 
+                                                    if( !empty( $logo ) ): ?>
+                                                    <img src="<?php echo esc_url($logo['url']); ?>"
+                                                        alt="<?php echo esc_attr($logo['alt']); ?>" />
+                                                    <?php endif; ?>
                                                     </div>
                                                     <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
+                                                        <h4><?php the_title() ?></h4>
+                                                        <p><?php the_field('abstraction')?>
                                                         </p>
                                                     </div>
                                                 </a>
                                             </div>
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            <?php endwhile;
+                                        wp_reset_postdata();?>
+                                            <?php else: ?>
+                                            <?php endif;?>
                                         </div>
                                     </div>
-                                    <div class="interview-list-main-op">
-                                        <h3>オフライン面談の場合</h3>
-                                        <div class="interview-list-in-op">
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img_2.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img_2.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img_2.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="interview-list-op">
-                                                <a href="#">
-                                                    <div class="interview-list-left-op">
-                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/interview_img_2.png"
-                                                            alt="" />
-                                                    </div>
-                                                    <div class="interview-list-right-op">
-                                                        <h4>コチラにオフライン面談テキストタイトルが入ります</h4>
-                                                        <p>ここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入りますここに説明テキストが入ります
-                                                        </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
 
-                                    </div>
                                     <div class="interview-btn-op">
-                                        <a href="<?php echo get_site_url() ?>/registration_form" class="common-btn-hp">登録する</a>
+                                        <a href="<?php echo get_site_url() ?>/registration_form"
+                                            class="common-btn-hp">登録する</a>
                                     </div>
                                 </div>
                                 <?php get_sidebar('wishes') ?>

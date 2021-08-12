@@ -128,7 +128,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c2c2c', end
 
 .banner-select-hp{ padding-bottom:24px; }
 .banner-select-hp select{ background-color:rgba(255,255,255,0.8); background-image:url(../images/dropdown_arrow.svg); background-repeat:no-repeat; background-position:right 18px center; border:0px; border-radius:0px; font-size:18px; line-height:27px; color:#707070; font-weight:300; padding-left:18px; height:48px; }
-.banner-input-hp{}
+.banner-select-hp .chosen-choices{
+    background-color:rgba(255,255,255,0.8) !important;
+    background-image:none !important;
+    color:#707070 !important;
+    font-weight:300 !important;
+    padding-top:9px !important;
+    padding-bottom:9px !important;
+    border:1px solid rgb(222, 226, 230) !important;
+}
+.banner-select-hp .chosen-search-input {
+    padding-top:3px !important;
+    padding-bottom:3px !important;
+}
+
 .banner-input-hp input{ background-color:rgba(255,255,255,0.8); border:0px; border-radius:0px; font-size:20px; line-height:30px; color:#B5B5B5; font-weight:300; padding-left:18px; height:48px; width:100%;  }
 .banner-input-hp input::-webkit-input-placeholder { color:#B5B5B5; }
 .banner-input-hp input::-moz-placeholder { color:#B5B5B5; }
@@ -921,8 +934,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbfab', end
     background-position-y: 2px;
     display: block;
     position: absolute;
-    top: 5px !important;
-    right: 2px !important;
+    opacity:0.6;
+    top: 10px !important;
+    right: 9px !important;
+    /* background-size:14px 10px; */
+    /* background-size:contain; */
     width: 18px;
     height: 25px;
     cursor: pointer;

@@ -16,7 +16,8 @@ get_header('no_transparent');
                                 <div class="banner-middle-ip">
                                     <div class="breadcrumb-ip">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
+                                            <li class="breadcrumb-item"><a
+                                                    href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
                                             <li class="breadcrumb-item active">転職者インタビュー</li>
                                         </ol>
                                     </div>
@@ -61,7 +62,12 @@ get_header('no_transparent');
                                     <div class="interview-middle-inp">
                                         <?php
 
-                                        $args = array('post_type' => 'interview', 'posts_per_page' => 10);
+                                        $args = array('post_type' => 'interview', 
+                                        'meta_query' => array(
+                                            array('key' => 'interview_kind', 
+                                            'value' => 'オンライン', 
+                                            'compare' => '=')
+                                        ), 'posts_per_page' => 10);
                                         $the_query = new WP_Query($args);
                                         $total_count = $the_query->found_posts;  
                                         $total_page = ceil($total_count / 3 );

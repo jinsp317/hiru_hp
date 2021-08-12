@@ -258,8 +258,7 @@ global $wpdb;
                                     </div>
                                     <div class="banner-select-hp">
                                         <select class="custom-select" data-placeholder="特長コードから探す" id="job_spec"
-                                            multiple>
-                                            <option value="">特長コードから探す</option>
+                                            multiple>                                            
                                             <option value="駅チカ">駅チカ</option>
                                             <option value="朝ゆっくり出社">朝ゆっくり出社</option>
                                             <option value="服装自由">服装自由</option>
