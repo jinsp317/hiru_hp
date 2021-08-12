@@ -406,6 +406,22 @@
 .beauty-info-left-bp{ width:100%; }
 .beauty-info-right-bp{ width:100%; padding:20px 0 0 0; font-size:13px; line-height:26px; }
 /*--------------- BEAUTY_END --------------*/
+
+/*--------------- ABOUT_START --------------*/
+.interview-box-idp .about-text-nip{ font-size: 22px; line-height: 22px; margin-top: 0; }
+.about-step-nip{ padding:30px 0; display:block; }
+.about-step-in-nip{ margin:20px auto 20px auto; }
+.about-extra-nip{ padding:0 0 40px 0; display:block; }
+.about-extra-in-nip{ width:100%; margin:0px 0 20px 0; padding:30px; }
+.about-extra-title-nip{ padding-bottom:30px; }
+.about-extra-title-nip h3{ font-size: 18px; line-height: 26px; }
+.about-extra-desc-nip { font-size: 14px; line-height: 30px; }
+.how-nip .signup-title-jep{ padding-bottom:40px; }
+.work-details-in-nw1p{ padding:0 0 40px 0; }
+
+.about-extra-in-full-nip{ margin:30px 0 0 0; }
+.about-extra-in-full-nip .about-extra-title-nip h3{ padding-bottom:0; }
+/*--------------- ABOUT_END --------------*/
 }
 
 @media(min-width:576px) and (max-width:767px){
@@ -806,6 +822,22 @@
 .beauty-info-left-bp{ width:100%; }
 .beauty-info-right-bp{ width:100%; padding:20px 0 0 0; font-size:13px; line-height:26px; }
 /*--------------- BEAUTY_END --------------*/
+
+/*--------------- ABOUT_START --------------*/
+.interview-box-idp .about-text-nip{ font-size: 22px; line-height: 22px; margin-top: 0; }
+.about-step-nip{ padding:30px 0; }
+.about-step-in-nip{ margin: 0 10px; width: 162px; height: 162px; font-size: 16px; line-height: 26px; }
+.about-extra-nip{ padding:0 0 40px 0; display:block; }
+.about-extra-in-nip{ width:100%; margin:0px 0 20px 0; padding:30px; }
+.about-extra-title-nip{ padding-bottom:30px; }
+.about-extra-title-nip h3{ font-size: 18px; line-height: 26px; }
+.about-extra-desc-nip { font-size: 14px; line-height: 30px; }
+.how-nip .signup-title-jep{ padding-bottom:40px; }
+.work-details-in-nw1p{ padding:0 0 40px 0; }
+
+.about-extra-in-full-nip{ margin:30px 0 0 0; }
+.about-extra-in-full-nip .about-extra-title-nip h3{ padding-bottom:10px; }
+/*--------------- ABOUT_END --------------*/
 }
 
 @media(min-width:768px) and (max-width:991px){
@@ -1202,6 +1234,22 @@
 .beauty-info-left-bp{ width:100%; }
 .beauty-info-right-bp{ width:100%; padding:20px 0 0 0; font-size:13px; line-height:26px; }
 /*--------------- BEAUTY_END --------------*/
+
+/*--------------- ABOUT_START --------------*/
+.interview-box-idp .about-text-nip{ font-size: 22px; line-height: 22px; margin-top: 0; }
+.about-step-nip{ padding:30px 0; display:block; }
+.about-step-in-nip{ margin:20px auto 20px auto; }
+.about-extra-nip{ padding:0 0 40px 0; display:block; }
+.about-extra-in-nip{ width:100%; margin:0px 0 20px 0; padding:30px; }
+.about-extra-title-nip{ padding-bottom:30px; }
+.about-extra-title-nip h3{ font-size: 18px; line-height: 26px; }
+.about-extra-desc-nip { font-size: 14px; line-height: 30px; }
+.how-nip .signup-title-jep{ padding-bottom:40px; }
+.work-details-in-nw1p{ padding:0 0 40px 0; }
+
+.about-extra-in-full-nip{ margin:30px 0 0 0; }
+.about-extra-in-full-nip .about-extra-title-nip h3{ padding-bottom:0px; }
+/*--------------- ABOUT_END --------------*/
 }
 
 @media(min-width:992px) and (max-width:1199px){
@@ -1494,6 +1542,22 @@
 .beauty-info-left-bp{  }
 .beauty-info-right-bp{font-size:13px; line-height:26px; }
 /*--------------- BEAUTY_END --------------*/
+
+/*--------------- ABOUT_START --------------*/
+.interview-box-idp .about-text-nip{ font-size: 22px; line-height: 22px; margin-top: 0; }
+.about-step-nip{ padding:30px 0; }
+.about-step-in-nip{ margin: 0 10px; width: 162px; height: 162px; font-size: 16px; line-height: 26px; }
+.about-extra-nip{ padding:0 0 40px 0; display:block; }
+.about-extra-in-nip{ width:100%; margin:0px 0 20px 0; padding:30px; }
+.about-extra-title-nip{ padding-bottom:30px; }
+.about-extra-title-nip h3{ font-size: 18px; line-height: 26px; }
+.about-extra-desc-nip { font-size: 14px; line-height: 30px; }
+.how-nip .signup-title-jep{ padding-bottom:40px; }
+.work-details-in-nw1p{ padding:0 0 40px 0; }
+
+.about-extra-in-full-nip{ margin:30px 0 0 0; }
+.about-extra-in-full-nip .about-extra-title-nip h3{ padding-bottom:10px; }
+/*--------------- ABOUT_END --------------*/
 }
 
 @media(min-width:1200px) and (max-width:1470px){
@@ -1601,6 +1665,14 @@
 .pickup-menu-item-inp{ font-size:16px; width: calc(20% - 6px); margin: 3px; line-height:20px; }
 .pickup-product-inp{ padding-bottom:30px; }
 /*--------------- INFORMATION_START --------------*/
+
+/*--------------- ABOUT_START --------------*/
+.about-extra-in-nip{ width:50%; padding:30px; }
+.about-extra-nip{ padding-left:0; padding-right:0; }
+
+.about-extra-in-full-nip{ margin:30px 0 0 0; width:100%; }
+.about-extra-in-full-nip .about-extra-title-nip h3{ padding-bottom:0px; }
+/*--------------- ABOUT_END --------------*/
 }
 
 

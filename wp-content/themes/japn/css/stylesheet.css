@@ -927,6 +927,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbfab', end
 .beauty-info-right-bp{ width:calc(100% - 300px); padding-left:30px; font-size:16px; line-height:32px; color:#707070; }
 /*--------------- BEAUTY_END --------------*/
 
+/*--------------- ABOUT_START --------------*/
+.about-box-middle-top-nip{ padding-bottom:0px; }
+.interview-box-idp .about-text-nip{ font-size:32px; line-height:32px; color:#726157; font-weight:700; margin-top:-50px; }
+.about-step-nip{ padding:75px 0; display:flex; align-items:center; justify-content: center; }
+.about-step-in-nip{ margin:0 25px; width:200px; height:200px; display:flex; align-items:center; justify-content: center; font-size:20px; line-height:30px; color:#fff; font-weight:500; background: rgb(220,191,171); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(220,191,171,1) 0%, rgba(148,114,94,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(220,191,171,1) 0%,rgba(148,114,94,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(220,191,171,1) 0%,rgba(148,114,94,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbfab', endColorstr='#94725e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ box-shadow:0 6px 10px rgba(0,0,0,0.16); border-radius:100%; text-align:center;  }
+
+.about-extra-nip{ padding:0 30px 115px 30px; display:flex; }
+.about-extra-in-nip{ background:#fff; border-radius:20px; padding:55px 15px 45px 26px; width:430px; margin:0 15px; }
+.about-extra-title-nip{ padding-bottom:55px; text-align:center; }
+.about-extra-title-nip h3{ display:inline-block; position:relative; font-size:23px; line-height:35px; color:#726157; font-weight:700; padding:0 45px; border:0; }
+.about-extra-title-nip h3:before{ content:''; position:absolute; left:0; bottom:0; background:url(../images/left_line.svg) no-repeat left bottom; width:35px; height:35px; }
+.about-extra-title-nip h3:after{ content:''; position:absolute; right:0; bottom:0; background:url(../images/right_line.svg) no-repeat left bottom; width:35px; height:35px; }
+.about-extra-desc-nip{ font-size:16px; line-height:32px; color:#707070; }
+.about-extra-in-2-nip{ width:calc(100% - 430px); }
 .chosen-container-multi ul.chosen-choices:after {
     content: '';
     background-image: url(chosen-sprite.png);
@@ -943,10 +961,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbfab', end
     height: 25px;
     cursor: pointer;
 }
+.how-nip{}
+.how-nip .signup-title-jep{ border-bottom:0; padding-bottom:55px; }
+.work-details-in-nw1p{ padding-top:0; padding-bottom:90px; }
 
 .chosen-container-multi.chosen-with-drop ul.chosen-choices:after {
     background-position-x: -18px;
 }
+.about-extra-in-full-nip{ margin:40px 0 0 0; width:100%; padding:40px; text-align:center; }
+.about-extra-in-full-nip .about-extra-title-nip{ padding-bottom:35px; }
+
+.adviser-details-in-nap{ padding-top:60px; padding-bottom:50px; }
+.adviser-details-in-nap .work-details-in-nw1p{ padding-bottom:50px; }
+/*--------------- ABOUT_END --------------*/
 
 
 
