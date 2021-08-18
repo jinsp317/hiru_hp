@@ -7,26 +7,23 @@ get_header('no_transparent');
 if(isset($_POST['contact-option'])) {
     $s_name = isset($_POST['s_name']) ? $_POST['s_name'] : '';
     $s_kana = isset($_POST['s_kana']) ? $_POST['s_kana'] : '';
-    $s_year = isset($_POST['s_year']) ? $_POST['s_year'] : '';
-    $s_month = isset($_POST['s_month']) ? $_POST['s_month'] : '';
-    $s_day = isset($_POST['s_day']) ? $_POST['s_day'] : '';
-    $s_gender = isset($_POST['s_gender']) ? $_POST['s_gender'] : '';
-    $s_address = isset($_POST['s_address']) ? $_POST['s_address'] : '';
+    $district_val = isset($_POST['district_val']) ? $_POST['district_val'] : '';
+    
     $s_phone = isset($_POST['s_phone']) ? $_POST['s_phone'] : '';
     $s_email = isset($_POST['s_email']) ? $_POST['s_email'] : '';
+    $detail_ch = $_POST['detail_ch'];
     $s_content = isset($_POST['s_content']) ? $_POST['s_content'] : '';
     $s_agree = isset($_POST['s_agree']) ? $_POST['s_agree'] : '';
     $to      = 'jinsp317@163.com';
 
     $message = "
     氏名 : ".$s_name."<br />
-    カナ : ".$s_kana."<br />
-    生年月日 : ".$s_year."-" . $s_month . "-" .  $s_day . "<br />
-    性別 : ".($s_gender == 1 ? '女性' : '男性') ."<br>
-    住所 : ".$s_address."<br />
+    カナ : ".$s_kana."<br />    
+    希望勤務地 : ".$district_val."<br />
     電話番号 : ".$s_phone."<br />
     メールアドレス : ".$s_email."<br />
-    相談内容 : ".$s_content."<br />
+    相談内容 : ". join(',', $detail_ch )."<br />
+    相談内容（詳細） : ".$s_content."<br />
     ";
     $subject = 'ConsultData';
     $headers = "From: " . $s_email . "\r\n";
@@ -54,7 +51,8 @@ if(isset($_POST['contact-option'])) {
                                 <div class="banner-middle-ip">
                                     <div class="breadcrumb-ip">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
+                                            <li class="breadcrumb-item"><a
+                                                    href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
                                             <li class="breadcrumb-item active">相談する</li>
                                         </ol>
                                     </div>
@@ -101,73 +99,7 @@ if(isset($_POST['contact-option'])) {
                                                         placeholder="例：ヒル　ハナコ" /></div>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 生年月日</div>
-                                                <div class="form-field-input-cop">
-                                                    <div class="form-field-select-cop">
-                                                        <div class="select-cop">
-                                                            <select class="custom-select" name="s_year">
-                                                                <?php for($i = 1950; $i < date('Y') - 13; $i ++) { ?>
-                                                                <option value="<?php echo $i; ?>"><?php echo $i ?>
-                                                                </option>
-                                                                <?php } ?>
-                                                            </select>
-                                                            <div class="select-text-cop">年</div>
-                                                        </div>
-                                                        <div class="select-cop">
-                                                            <select class="custom-select" name="s_month">
-                                                                <?php for($i = 1; $i <= 12 ; $i++) {?>
-                                                                <option value="<?php echo $i ?>"><?php echo $i; ?>
-                                                                </option>
-                                                                <?php } ?>
-                                                            </select>
-                                                            <div class="select-text-cop">月</div>
-                                                        </div>
-                                                        <div class="select-cop">
-                                                            <select class="custom-select" name="s_day">
-                                                                <?php for($i = 1; $i < 32; $i++) { ?>
-                                                                <option value="<?php echo $i ?>"><?php echo $i ?>
-                                                                </option>
 
-                                                                <?php } ?>
-                                                            </select>
-                                                            <div class="select-text-cop">日</div>
-                                                        </div>
-                                                        <div class="select-days-cop">（30歳）</div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 性別</div>
-                                                <div class="form-field-input-cop">
-                                                    <div class="form-radio-cop">
-                                                        <div class="form-field-radio-cop">
-                                                            <label class="radio-container-cop">女性
-                                                                <input type="radio" checked="checked" value="1"
-                                                                    name="s_gender">
-                                                                <span class="checkmark-cop"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-radio-cop">
-                                                        <div class="form-field-radio-cop">
-                                                            <label class="radio-container-cop">男性
-                                                                <input type="radio" checked="checked" value="2"
-                                                                    name="s_gender">
-                                                                <span class="checkmark-cop"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 住所</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_address"
-                                                        placeholder="例：XXX県XX市XX町1234" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
                                             <div class="form-field-cop">
                                                 <div class="form-field-lable-cop"><span>必須</span> 電話番号</div>
                                                 <div class="form-field-input-cop"><input type="text" name="s_phone"
@@ -181,8 +113,96 @@ if(isset($_POST['contact-option'])) {
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="form-field-cop">
+                                                <div class="form-field-lable-cop">希望勤務地</div>
+                                                <div class="form-field-input-cop">
+                                                    <select class="custom-select" name="district_val" id="district_val">
+                                                        <option value="">都道府県</option>
+                                                        <option value="東京都">東京都</option>
+                                                        <option value="北海道">北海道</option>
+                                                        <option value="青森県">青森県</option>
+                                                        <option value="岩手県">岩手県</option>
+                                                        <option value="岩手県">宮城県</option>
+                                                        <option value="秋田県">秋田県</option>
+                                                        <option value="山形県">山形県</option>
+                                                        <option value="福島県">福島県</option>
+                                                        <option value="茨城県">茨城県</option>
+                                                        <option value="栃木県">栃木県</option>
+                                                        <option value="群馬県">群馬県</option>
+                                                        <option value="埼玉県">埼玉県</option>
+                                                        <option value="千葉県">千葉県</option>
+                                                        <option value="神奈川県">神奈川県</option>
+                                                        <option value="新潟県">新潟県</option>
+                                                        <option value="富山県">富山県</option>
+                                                        <option value="石川県">石川県</option>
+                                                        <option value="福井県">福井県</option>
+                                                        <option value="山梨県">山梨県</option>
+                                                        <option value="長野県">長野県</option>
+                                                        <option value="岐阜県">岐阜県</option>
+                                                        <option value="愛知県">愛知県</option>
+                                                        <option value="三重県">三重県</option>
+                                                        <option value="滋賀県">滋賀県</option>
+                                                        <option value="京都府">京都府</option>
+                                                        <option value="大阪府">大阪府</option>
+                                                        <option value="兵庫県">兵庫県</option>
+                                                        <option value="奈良県">奈良県</option>
+                                                        <option value="和歌山県">和歌山県</option>
+                                                        <option value="鳥取県">鳥取県</option>
+                                                        <option value="島根県">島根県</option>
+                                                        <option value="岡山県">岡山県</option>
+                                                        <option value="広島県">広島県</option>
+                                                        <option value="山口県">山口県</option>
+                                                        <option value="徳島県">徳島県</option>
+                                                        <option value="香川県">香川県</option>
+                                                        <option value="愛媛県">愛媛県</option>
+                                                        <option value="高知県">高知県</option>
+                                                        <option value="福岡県">福岡県</option>
+                                                        <option value="佐賀県">佐賀県</option>
+                                                        <option value="長崎県">長崎県</option>
+                                                        <option value="熊本県">熊本県</option>
+                                                        <option value="大分県">大分県</option>
+                                                        <option value="宮崎県">宮崎県</option>
+                                                        <option value="鹿児島県">鹿児島県</option>
+                                                        <option value="沖縄県">沖縄県</option>
+                                                    </select>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="form-field-cop">
                                                 <div class="form-field-lable-cop form-field-label-top-cop">
-                                                    <span>必須</span> 相談内容
+                                                    相談内容
+                                                </div>
+                                                <div class="form-field-input-cop form-inline ">                                                    
+                                                    <div class="form-check" style="justify-content:left;">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="detail_ch[]"
+                                                                value="求人を紹介してほしい" />求人を紹介してほしい</label>
+                                                    </div>
+                                                    <div class="form-check mt-1" style="justify-content:left;">
+                                                        <label class="form-check-label" >
+                                                            <input type="checkbox" class="form-check-input" name="detail_ch[]"
+                                                                value="お昼の仕事について教えてほしい" />お昼の仕事について教えてほしい</label>
+                                                    </div>
+                                                    <div class="form-check mt-1" style="justify-content:left;">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="detail_ch[]"
+                                                                value="適職を提案してほしい" />適職を提案してほしい</label>
+                                                    </div>
+                                                    <div class="form-check mt-1" style="justify-content:left;">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="detail_ch[]"
+                                                                value="履歴書の書き方を教えてほしい" />履歴書の書き方を教えてほしい</label>
+                                                    </div>
+                                                    <div class="form-check mt-1" style="justify-content:left;">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="detail_ch[]"
+                                                                value="その他" />その他</label>
+                                                    </div>                                                    
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="form-field-cop">
+                                                <div class="form-field-lable-cop form-field-label-top-cop">
+                                                    相談内容（詳細）
                                                 </div>
                                                 <div class="form-field-input-cop"><textarea placeholder="入力してください"
                                                         name="s_content"></textarea></div>
@@ -191,7 +211,8 @@ if(isset($_POST['contact-option'])) {
                                             <div class="form-field-radio-main-cop">
                                                 <div class="form-field-radio-cop">
                                                     <label class="radio-container-cop">
-                                                        <a href="<?php echo get_site_url()?>/privacy_policy">個人情報の取扱いについて同意して登録する</a>
+                                                        <a
+                                                            href="<?php echo get_site_url()?>/privacy_policy">個人情報の取扱いについて同意して登録する</a>
                                                         <input type="checkbox" name="s_agree">
                                                         <span class="checkmark-cop"></span>
                                                     </label>
@@ -250,37 +271,23 @@ $(document).ready(function() {
             s_kana: {
                 required: true
             },
-            s_year: {
-                required: true
-            },
-            s_month: {
-                required: true
-            },
-            s_day: {
-                required: true
-            },
-            s_address: {
-                required: true
-            },
             s_phone: {
                 required: true
             },
             s_email: {
                 required: true,
                 email: true
-            },
-            s_content: {
-                required: true
             }
-
+        },
+        messages: {
+            s_name: 'このフィールドは必須です',
+            s_kana: 'このフィールドは必須です',
+           s_phone: 'このフィールドは必須です',
+            s_email: 'このフィールドは必須です',
         }
     });
     $('#regBtn').on('click', function() {
-        if ($('#cosultFrm').validate()) {
-            console.log('object')
-        } else {
-            // console.log('error')
-        }
+        $('#cosultFrm').submit();
     })
 })
 </script>

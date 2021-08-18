@@ -31,7 +31,7 @@
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/owl.theme.default.css" rel="stylesheet"
         type="text/css">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet_v2.css" rel="stylesheet" type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive.css" rel="stylesheet" type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/chosen.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

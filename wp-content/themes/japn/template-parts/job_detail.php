@@ -32,7 +32,7 @@ get_header('no_transparent');
                                     <div class="breadcrumb-ip">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
-                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url()?>/job_list">福岡県のお仕事情報</a></li>
+                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url()?>/job_list"><?php the_field('addressRegion') ?>のお仕事情報</a></li>
                                             <li class="breadcrumb-item active">ジョブNo.<?php the_ID() ?></li>
                                         </ol>
                                     </div>
@@ -58,7 +58,7 @@ get_header('no_transparent');
                                         <!-- <div class="job-like-jlp"><a href="#" class="active"></a></div> -->
                                         <div class="job-number-jlp">ジョブNo.<?php the_ID() ?></div>
                                         <div class="job-name-jlp">
-                                            <a href="<?php echo get_site_url() ?>/job_detail?id=<?php the_ID() ?>">
+                                            <a href="<?php echo get_site_url() ?>/job?id=<?php the_ID() ?>">
                                                 <?php the_title() ?>
                                             </a>
                                         </div>
@@ -409,7 +409,7 @@ get_header('no_transparent');
 
                                     <div class="feature-btns-hp details-btns-hp">
                                         <div class="feature-btn-hp">
-                                            <a href="#" class="common-btn-hp">応募する</a>
+                                            <a href="<?php echo get_site_url('') ?>/job_entry?id=<?php the_ID() ?>" class="common-btn-hp">応募する</a>
                                         </div>
                                         <div class="feature-btn-hp">
                                             <a href="#" class="common-btn-hp border-btn-hp">詳しく見る</a>

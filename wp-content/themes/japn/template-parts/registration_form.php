@@ -4,40 +4,47 @@
 get_header('no_transparent');
 ?>
 <?php 
-if(isset($_POST['contact-option'])) {
-    $s_job = isset($_POST['s_job']) ? $_POST['s_job'] : '';
-    $s_name = isset($_POST['s_name']) ? $_POST['s_name'] : '';
-    $s_kana = isset($_POST['s_kana']) ? $_POST['s_kana'] : '';
-    $s_year = isset($_POST['s_year']) ? $_POST['s_year'] : '';
-    $s_month = isset($_POST['s_month']) ? $_POST['s_month'] : '';
-    $s_day = isset($_POST['s_day']) ? $_POST['s_day'] : '';
-    $s_gender = isset($_POST['s_gender']) ? $_POST['s_gender'] : '';
-    $s_address = isset($_POST['s_address']) ? $_POST['s_address'] : '';
-    $s_phone = isset($_POST['s_phone']) ? $_POST['s_phone'] : '';
-    $s_email = isset($_POST['s_email']) ? $_POST['s_email'] : '';
-    $s_history = isset($_POST['s_history']) ? $_POST['s_history'] : '';
-    $s_content = isset($_POST['s_content']) ? $_POST['s_content'] : '';
-    $s_agree = isset($_POST['s_agree']) ? $_POST['s_agree'] : '';
-    $s_comment = isset($_POST['s_comment']) ? $_POST['s_comment'] : '';
+if(isset($_POST['contact_kind'])) {
+    $shugyo = $_POST['shugyo'];
+    $kinmuchi = $_POST['kinmuchi'];
+    $seinen = isset($_POST['seinen']) ? $_POST['seinen'] : '';
+    $name_sei = isset($_POST['name_sei']) ? $_POST['name_sei'] : '';
+    $name_mei = isset($_POST['name_mei']) ? $_POST['name_mei'] : '';
+    $furigana_sei = isset($_POST['furigana_sei']) ? $_POST['furigana_sei'] : '';
+    $furigana_mei = isset($_POST['furigana_mei']) ? $_POST['furigana_mei'] : '';
+    $tel = isset($_POST['tel']) ? $_POST['tel'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    // $s_kana = isset($_POST['s_kana']) ? $_POST['s_kana'] : '';
+    // $s_year = isset($_POST['s_year']) ? $_POST['s_year'] : '';
+    // $s_month = isset($_POST['s_month']) ? $_POST['s_month'] : '';
+    // $s_day = isset($_POST['s_day']) ? $_POST['s_day'] : '';
+    // $s_gender = isset($_POST['s_gender']) ? $_POST['s_gender'] : '';
+    // $s_address = isset($_POST['s_address']) ? $_POST['s_address'] : '';
+    // $s_phone = isset($_POST['s_phone']) ? $_POST['s_phone'] : '';
+    // $s_email = isset($_POST['s_email']) ? $_POST['s_email'] : '';
+    // $s_history = isset($_POST['s_history']) ? $_POST['s_history'] : '';
+    // $s_content = isset($_POST['s_content']) ? $_POST['s_content'] : '';
+    // $s_agree = isset($_POST['s_agree']) ? $_POST['s_agree'] : '';
+    // $s_comment = isset($_POST['s_comment']) ? $_POST['s_comment'] : '';
     $to      = 'jinsp317@163.com';
 
     $message = "
-    職種 : ".$s_job."<br />
-    氏名 : ".$s_name."<br />
-    カナ : ".$s_kana."<br />
-    生年月日 : ".$s_year."-" . $s_month . "-" .  $s_day . "<br />
-    性別 : ".($s_gender == 1 ? '女性' : '男性') ."<br>
-    住所 : ".$s_address."<br />
-    電話番号 : ".$s_phone."<br />
-    メールアドレス : ".$s_email."<br />
-    職歴 : ".$s_history."<br />
-    メッセージ : ".$s_comment."<br />
-    ";
+    経験のある仕事 : ". join(',', $shugyo)."<br />
+    希望勤務地 : ". join(',', $kinmuchi)."<br />
+    生まれた年 : ".$seinen."<br />
+    姓 : ".$name_sei."<br />
+    名 : ".$name_mei."<br />
+    セイ : ".$furigana_sei."<br />
+    メイ : ".$furigana_mei."<br />
+    携帯番号 : ".$tel."<br />
+    携帯番号 : ".$tel."<br />";
+   
     $subject = 'RegisterData';
-    $headers = "From: " . $s_email . "\r\n";
-    $headers .= "Reply-To: " . $s_email . "\r\n";
+    $headers = "From: " . $email . "\r\n";
+    $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    // echo $message;
     if(mail($to, $subject, $message, $headers)) {
         echo '<script>alert("Success!"); location.href="'.home_url().'"</script>';
     } else {
@@ -82,7 +89,8 @@ if(isset($_POST['contact-option'])) {
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 about-block-in-ip">
                             <div class="signup-jep signup-cfp">
-                                <form id="regFrm" method="POST" action="">
+                                <form id="reservation" method="POST" action="">
+                                    <input type="hidden" name="contact_kind" value="1" />
                                     <div class="signup-in-jep">
                                         <div class="signup-title-jep">
                                             <h2><span>S</span>ign up</h2>
@@ -93,135 +101,350 @@ if(isset($_POST['contact-option'])) {
                                             下記フォームをご入力の上、ご連絡ください。<br>
                                             下記の「個人情報の取扱いについて」に同意の上、ご入力ください。
                                         </div>
-                                        <div class="signup-form-jep">
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 職種</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_job"
-                                                        placeholder="例：事務職" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 氏名</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_name"
-                                                        placeholder="例：昼　花子" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> カナ</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_kana"
-                                                        placeholder="例：ヒル　ハナコ" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 生年月日</div>
-                                                <div class="form-field-input-cop">
-                                                    <div class="form-field-select-cop">
-                                                        <div class="select-cop">
-                                                            <select class="custom-select" name="s_year">
-                                                                <?php for($i = 1950; $i < date('Y') - 13; $i ++) { ?>
-                                                                <option value="<?php echo $i; ?>"><?php echo $i ?>
-                                                                </option>
-                                                                <?php } ?>
-                                                            </select>
-                                                            <div class="select-text-cop">年</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-block-in-hp">
+                                            <div class="form-middle-hp">
+                                                <div class="form-middle-main-hp">
+                                                    <div class="form-middle-main-border-hp">
+                                                        <div class="steps-hp">
+                                                            <div class="step-hp step-1-hp active">1
+                                                                <br><span>就業状況</span>
+                                                            </div>
+                                                            <div class="step-hp step-2-hp">2
+                                                                <br><span>生年月日</span>
+                                                            </div>
+                                                            <div class="step-hp step-3-hp">3
+                                                                <br><span>希望勤務地</span>
+                                                            </div>
+                                                            <div class="step-hp step-4-hp">4
+                                                                <br><span>お名前</span>
+                                                            </div>
+                                                            <div class="step-hp step-5-hp">5
+                                                                <br><span>連絡先</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="select-cop">
-                                                            <select class="custom-select" name="s_month">
-                                                                <?php for($i = 1; $i <= 12 ; $i++) {?>
-                                                                <option value="<?php echo $i ?>"><?php echo $i; ?>
-                                                                </option>
-                                                                <?php } ?>
-                                                            </select>
-                                                            <div class="select-text-cop">月</div>
-                                                        </div>
-                                                        <div class="select-cop">
-                                                            <select class="custom-select" name="s_day">
-                                                                <?php for($i = 1; $i < 32; $i++) { ?>
-                                                                <option value="<?php echo $i ?>"><?php echo $i ?>
-                                                                </option>
+                                                        <div class="form-boxes-hp">
+                                                            <div class="form-boxes-in-hp form-boxes-1-hp">
+                                                                <div class="form-number-hp">
+                                                                    <span>Q1</span>
+                                                                </div>
+                                                                <div class="form-title-hp">
+                                                                    <h2>経験のある仕事を<br>教えてください<span>（複数選択可）</span>
+                                                                    </h2>
+                                                                </div>
+                                                                <div class="form-option-hp">
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]"
+                                                                            id="girls" class="q1" value="ガールズバー">
+                                                                        <label for="girls" class="">ガールズバー</label>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]" id="caba"
+                                                                            class="q1" value="キャバクラ">
+                                                                        <label for="caba" class="">キャバクラ</label>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]"
+                                                                            id="rounge" class="q1" value="ラウンジ">
+                                                                        <label for="rounge" class="">ラウンジ</label>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]"
+                                                                            id="snack" class="q1" value="スナック">
+                                                                        <label for="snack" class="">スナック</label>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]" id="mens"
+                                                                            class="q1" value="メンズエステ">
+                                                                        <label for="mens" class="">メンズエステ</label>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]"
+                                                                            id="fuzoku" class="q1" value="風俗">
+                                                                        <label for="fuzoku" class="">風俗</label>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="shugyo[]"
+                                                                            id="other" class="q1" value="その他">
+                                                                        <label for="other" class="">その他</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="submit"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_1"
+                                                                        disabled>次のステップへ</button>
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment">
+                                                                        <span>まずは<br>最初のステップ！</span>
+                                                                    </p>
+                                                                    <div class="staff"><img
+                                                                            src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-boxes-in-hp form-boxes-2-hp"
+                                                                style="display:none;">
+                                                                <div class="form-number-hp">
+                                                                    <span>Q2</span>
+                                                                </div>
+                                                                <div class="form-title-hp">
+                                                                    <h2>生まれた年を入力してください</h2>
+                                                                </div>
+                                                                <div class="form-option-hp form-option-2-hp">
+                                                                    <div class="form-hp form-2-hp">
+                                                                        <p class="year">西暦</p>
+                                                                        <div class="detail"><input required=""
+                                                                                type="text" name="seinen"
+                                                                                placeholder="生まれた年" value=""></div>
+                                                                        <p class="year">年</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="submit"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_2"
+                                                                        disabled>次のステップへ</button>
+                                                                </div>
+                                                                <div class="back-hp">
+                                                                    <input type="button" class="back_btn back_btn_2"
+                                                                        value="戻って修正する">
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment">
+                                                                        <span>生まれた年を<br>ご記入ください</span>
+                                                                    </p>
+                                                                    <div class="staff"><img
+                                                                            src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-boxes-in-hp form-boxes-3-hp"
+                                                                style="display:none;">
+                                                                <div class="form-number-hp">
+                                                                    <span>Q3</span>
+                                                                </div>
+                                                                <div class="form-title-hp">
+                                                                    <h2>希望勤務地はどこですか？</h2>
+                                                                </div>
+                                                                <div class="form-option-hp form-option-3-hp">
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="tokyo" value="東京">
+                                                                        <label for="tokyo">東京</label>
+                                                                    </div>
+                                                                    <!--form-->
 
-                                                                <?php } ?>
-                                                            </select>
-                                                            <div class="select-text-cop">日</div>
-                                                        </div>
-                                                        <div class="select-days-cop">（30歳）</div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 性別</div>
-                                                <div class="form-field-input-cop">
-                                                    <div class="form-radio-cop">
-                                                        <div class="form-field-radio-cop">
-                                                            <label class="radio-container-cop">女性
-                                                                <input type="radio" checked="checked" value="1"
-                                                                    name="s_gender">
-                                                                <span class="checkmark-cop"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-radio-cop">
-                                                        <div class="form-field-radio-cop">
-                                                            <label class="radio-container-cop">男性
-                                                                <input type="radio" checked="checked" value="2"
-                                                                    name="s_gender">
-                                                                <span class="checkmark-cop"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 住所</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_address"
-                                                        placeholder="例：XXX県XX市XX町1234" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> 電話番号</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_phone"
-                                                        placeholder="例：09012345678" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop"><span>必須</span> メールアドレス</div>
-                                                <div class="form-field-input-cop"><input type="text" name="s_email"
-                                                        placeholder="例：sample@hirunavi.com" /></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop form-field-label-top-cop">
-                                                    <span>必須</span> 職歴
-                                                </div>
-                                                <div class="form-field-input-cop"><textarea placeholder="入力してください"
-                                                        name="s_history"></textarea></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-cop">
-                                                <div class="form-field-lable-cop form-field-label-top-cop">
-                                                    <span>必須</span> メッセージ
-                                                </div>
-                                                <div class="form-field-input-cop"><textarea placeholder="入力してください"
-                                                        name="s_comment"></textarea></div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="form-field-radio-main-cop">
-                                                <div class="form-field-radio-cop">
-                                                    <label class="radio-container-cop">
-                                                        <a
-                                                            href="<?php echo get_site_url()?>/privacy_policy">個人情報の取扱いについて同意して登録する</a>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="kanagawa" value="神奈川">
+                                                                        <label for="kanagawa">神奈川</label>
+                                                                    </div>
+                                                                    <!--form-->
 
-                                                        <input type="checkbox" name="s_agree" />
-                                                        <span class="checkmark-cop"></span>
-                                                    </label>
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="chiba" value="千葉">
+                                                                        <label for="chiba">千葉</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="saitama" value="埼玉">
+                                                                        <label for="saitama">埼玉</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="osaka" value="大阪">
+                                                                        <label for="osaka">大阪</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="kyoto" value="京都">
+                                                                        <label for="kyoto">京都</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="hyogo" value="兵庫">
+                                                                        <label for="hyogo">兵庫</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="nara" value="奈良">
+                                                                        <label for="nara">奈良</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="fukuoka" value="福岡">
+                                                                        <label for="fukuoka">福岡</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="aichi" value="愛知">
+                                                                        <label for="aichi">愛知</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="sapporo" value="札幌">
+                                                                        <label for="sapporo">札幌</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="miyagi" value="宮城">
+                                                                        <label for="miyagi">宮城</label>
+                                                                    </div>
+                                                                    <!--form-->
+
+                                                                    <div class="form-hp">
+                                                                        <input type="checkbox" name="kinmuchi[]"
+                                                                            class="q3" id="all" value="全国">
+                                                                        <label for="all">全国</label>
+                                                                    </div>
+                                                                    <!--form-->
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="submit"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_3"
+                                                                        disabled>次のステップへ</button>
+                                                                </div>
+                                                                <div class="back-hp">
+                                                                    <input type="button" class="back_btn back_btn_3"
+                                                                        value="戻って修正する">
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment">
+                                                                        <span>ご希望の勤務地を<br>教えてください</span>
+                                                                    </p>
+                                                                    <div class="staff"><img
+                                                                            src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-boxes-in-hp form-boxes-4-hp"
+                                                                style="display:none;">
+                                                                <div class="form-number-hp">
+                                                                    <span>Q4</span>
+                                                                </div>
+                                                                <div class="form-title-hp">
+                                                                    <h2>お名前とフリガナを教えてください</h2>
+                                                                </div>
+                                                                <div class="form-option-hp form-option-4-hp">
+                                                                    <div class="form-hp">
+                                                                        <p class="item">お名前</p>
+                                                                        <div class="detail">
+                                                                            <input required="" type="text" class="name1"
+                                                                                name="name_sei" placeholder="姓"
+                                                                                value="">
+                                                                            <input type="text" class="name1"
+                                                                                name="name_mei" placeholder="名"
+                                                                                value="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-hp">
+                                                                        <p class="item">フリガナ</p>
+                                                                        <div class="detail">
+                                                                            <input required="" type="text" class="name2"
+                                                                                name="furigana_sei" placeholder="セイ"
+                                                                                value="" disabled="">
+                                                                            <input type="text" class="name2"
+                                                                                name="furigana_mei" placeholder="メイ"
+                                                                                value="" disabled="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="submit"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_4"
+                                                                        disabled>次のステップへ</button>
+                                                                </div>
+                                                                <div class="back-hp">
+                                                                    <input type="button" class="back_btn back_btn_4"
+                                                                        value="次のステップへ">
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment"><span>あと一息です！</span>
+                                                                    </p>
+                                                                    <div class="staff"><img
+                                                                            src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-boxes-in-hp form-boxes-5-hp"
+                                                                style="display:none;">
+                                                                <div class="form-number-hp">
+                                                                    <span>Q5</span>
+                                                                </div>
+                                                                <div class="form-title-hp">
+                                                                    <h2>優良企業を紹介するための<br>連絡先を教えてください</h2>
+                                                                </div>
+                                                                <div
+                                                                    class="form-option-hp form-option-4-hp form-option-5-hp">
+                                                                    <div class="form-hp">
+                                                                        <p class="item">携帯番号</p>
+                                                                        <div class="detail"><input required=""
+                                                                                type="tel" class="tel" name="tel"
+                                                                                placeholder="000-0000-0000" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-hp form-email-hp">
+                                                                        <p class="item">メールアドレス</p>
+                                                                        <div class="detail">
+                                                                            <input required="" type="email"
+                                                                                class="email" name="email"
+                                                                                placeholder="xxx@xxx.xxx" value=""
+                                                                                disabled="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="submit"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_5"
+                                                                        disabled>確認する</button>
+                                                                </div>
+                                                                <div class="back-hp">
+                                                                    <input type="button" class="back_btn back_btn_5"
+                                                                        value="戻って修正する">
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment">
+                                                                        <span>これが<br>最後の質問です！</span>
+                                                                    </p>
+                                                                    <div class="staff">
+                                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <div class="clearfix"></div>
                                             </div>
-                                            <div class="form-btn-cop">
-                                                <button class="common-btn-hp" name="contact-option">送信内容を確認する</button>
-                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
+
+                                        <div class="clearfix"></div>
                                     </div>
                                 </form>
                             </div>
@@ -231,28 +454,28 @@ if(isset($_POST['contact-option'])) {
                 </div>
                 <div class="clearfix"></div>
             </div>
-        </div>
-        <div class="company-block-hp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 company-block-in-hp">
-                        <div class="company-middle-hp">
-                            <div class="company-middle-in-hp">
-                                <div class="company-img-hp">
-                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="" />
-                                </div>
-                                <div class="company-info-hp">
-                                    昼ナビは、キャバクラ・クラブ・ボーイ・黒服などのナイトワークの方々が昼職に転職に転職したいと考えた時に感じる「履歴書の書き方が分からない」・「自分にあった仕事が分からない」・「昼職の実情が分からない」といったお悩みをアドバイザーが一人ひとりに真剣に向き合い、お話しした上で全て解消し、希望や適正に応じたお仕事をご紹介します。
+            <div class="company-block-hp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 company-block-in-hp">
+                            <div class="company-middle-hp">
+                                <div class="company-middle-in-hp">
+                                    <div class="company-img-hp">
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png"
+                                            alt="" />
+                                    </div>
+                                    <div class="company-info-hp">
+                                        昼ナビは、キャバクラ・クラブ・ボーイ・黒服などのナイトワークの方々が昼職に転職に転職したいと考えた時に感じる「履歴書の書き方が分からない」・「自分にあった仕事が分からない」・「昼職の実情が分からない」といったお悩みをアドバイザーが一人ひとりに真剣に向き合い、お話しした上で全て解消し、希望や適正に応じたお仕事をご紹介します。
+                                    </div>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
             <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
     </section>
     <!-- CONTAIN_END -->
 </main>
@@ -261,48 +484,213 @@ if(isset($_POST['contact-option'])) {
 <script type="text/javascript">
 const to = "<?php echo get_bloginfo('admin_email') ?>";
 $(document).ready(function() {
-    $('#reservation').validate({
-        rules: {
-            s_name: {
-                required: true
-            },
-            s_kana: {
-                required: true
-            },
-            s_year: {
-                required: true
-            },
-            s_month: {
-                required: true
-            },
-            s_day: {
-                required: true
-            },
-            s_address: {
-                required: true
-            },
-            s_phone: {
-                required: true
-            },
-            s_email: {
-                required: true,
-                email: true
-            },
-            s_history: {
-                required: true,
-            },
-            s_comment: {
-                required: true
-            }
-
-        }
-    });
     $('#regBtn').on('click', function() {
         if ($('#reservation').validate()) {
-            console.log('object')
+            $('#reservation').submit();
         } else {
             console.log('error')
         }
     })
+    $(function() {
+        $(".submit_btn_1").prop("disabled", true);
+        $(".q1").click(function() {
+            submitCheck();
+        });
+        submitCheck();
+
+        function submitCheck() {
+            if ($('input[name=\'shugyo[]\']:checked').length == 0) {
+                $(".submit_btn_1").prop("disabled", true);
+            } else {
+                $(".submit_btn_1").prop("disabled", false);
+            }
+        }
+        $(".submit_btn_1").click(function() {
+            $(".form-boxes-1-hp").css("display", "none");
+            $(".form-boxes-2-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-2-hp").addClass("active");
+        });
+    });
+
+    /*--2--*/
+    $(function() {
+        $(".submit_btn_2").prop("disabled", true);
+
+        $('.form-option-2-hp input:required').keyup(function() {
+            submitCheck_2();
+        });
+        submitCheck_2();
+
+        function submitCheck_2() {
+            let flag = true;
+            $('.form-option-2-hp input:required').each(function(e) {
+                if ($('.form-option-2-hp input:required').eq(e).val() === "") {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                $('.submit_btn_2').prop("disabled", false);
+            } else {
+                $('.submit_btn_2').prop("disabled", true);
+            }
+        }
+
+        $(".submit_btn_2").click(function() {
+            $(".form-boxes-2-hp").css("display", "none");
+            $(".form-boxes-3-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-3-hp").addClass("active");
+        });
+
+        $(".back_btn_2").click(function() {
+            $(".form-boxes-2-hp").css("display", "none");
+            $(".form-boxes-1-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-1-hp").addClass("active");
+        });
+    });
+
+    /*--3--*/
+    $(function() {
+        $(".submit_btn_3").prop("disabled", true);
+        $(".q3").click(function() {
+            submitCheck_3();
+        });
+        submitCheck_3();
+
+        function submitCheck_3() {
+            if ($('input[name=\'kinmuchi[]\']:checked').length == 0) {
+                $(".submit_btn_3").prop("disabled", true);
+            } else {
+                $(".submit_btn_3").prop("disabled", false);
+            }
+        }
+
+        $(".submit_btn_3").click(function() {
+            $(".form-boxes-3-hp").css("display", "none");
+            $(".form-boxes-4-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-4-hp").addClass("active");
+        });
+
+        $(".back_btn_3").click(function() {
+            $(".form-boxes-3-hp").css("display", "none");
+            $(".form-boxes-2-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-2-hp").addClass("active");
+        });
+    });
+
+    /*--4--*/
+    $(function() {
+        $(".submit_btn_4").prop("disabled", true);
+        $(".name2").prop("disabled", true);
+
+        $('.name1').keyup(function() {
+            name1Check();
+        });
+
+        $('.name2').keyup(function() {
+            name2Check();
+        });
+        name1Check();
+        name2Check();
+
+        function name1Check() {
+            let flag = true;
+            $('.name1').each(function(e) {
+                if ($('.name1').eq(e).val() === "") {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                $('.name2').prop("disabled", false);
+            } else {
+                $('.name2').prop("disabled", true);
+            }
+        }
+
+        function name2Check() {
+            let flag = true;
+            $('.name2').each(function(e) {
+                if ($('.name2').eq(e).val() === "") {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                $('.submit_btn_4').prop("disabled", false);
+            } else {
+                $('.submit_btn_4').prop("disabled", true);
+            }
+        }
+
+        $(".submit_btn_4").click(function() {
+            $(".form-boxes-4-hp").css("display", "none");
+            $(".form-boxes-5-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-5-hp").addClass("active");
+        });
+
+        $(".back_btn_4").click(function() {
+            $(".form-boxes-4-hp").css("display", "none");
+            $(".form-boxes-3-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-3-hp").addClass("active");
+        });
+    });
+
+    /*--5--*/
+    $(function() {
+        $(".submit_btn_5").prop("disabled", true);
+        $(".email").prop("disabled", true);
+
+        $('.tel').keyup(function() {
+            telCheck();
+        });
+
+        $('.email').keyup(function() {
+            emailCheck();
+        });
+        telCheck();
+        emailCheck();
+
+        function telCheck() {
+            let flag = true;
+            $('.tel').each(function(e) {
+                if ($('.tel').eq(e).val() === "") {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                $('.email').prop("disabled", false);
+            } else {
+                $('.email').prop("disabled", true);
+            }
+        }
+
+        function emailCheck() {
+            let flag = true;
+            $('.email').each(function(e) {
+                if ($('.email').eq(e).val() === "") {
+                    flag = false;
+                }
+            });
+            if (flag) {
+                $('.submit_btn_5').prop("disabled", false);
+            } else {
+                $('.submit_btn_5').prop("disabled", true);
+            }
+        }
+        $('.submit_btn_5').on('click', function(e) {
+            $('#reservation').submit();
+        })
+        $(".back_btn_5").click(function() {
+            $(".form-boxes-5-hp").css("display", "none");
+            $(".form-boxes-4-hp").fadeIn();
+            $(".step-hp").removeClass("active");
+            $(".step-4-hp").addClass("active");
+        });
+    });
 })
 </script>

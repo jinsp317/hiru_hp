@@ -73,7 +73,7 @@ get_header('no_transparent');
                                         <?php the_field('content') ?>
                                         <?php } ?>
                                         <div class="adviser-details-btn-ap">
-                                            <a href="#" class="common-btn-hp">この会社の求人情報を見る</a>
+                                            <a href="<?php echo get_site_url() ?>/job_list" class="common-btn-hp">この会社の求人情報を見る</a>
                                         </div>
                                     </div>
                                     <div class="adviser-details-in-ap latest-interview-idp">
@@ -115,7 +115,7 @@ get_header('no_transparent');
                                             <?php endif;?>
                                             
                                         </div>
-                                        <div class="more-inertview-idp"><a href="<?php echo get_site_url() ?>/interview_list">もっとみる＞</a></div>
+                                        <div class="more-inertview-idp"><a href="<?php echo get_site_url() ?>/informations">もっとみる＞</a></div>
                                     </div>
                                 </div>
                                 <?php get_sidebar('wishes') ?>

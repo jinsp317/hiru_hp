@@ -63,11 +63,7 @@ get_header('no_transparent');
                                         <?php
 
                                         $args = array('post_type' => 'interview', 
-                                        'meta_query' => array(
-                                            array('key' => 'interview_kind', 
-                                            'value' => 'オンライン', 
-                                            'compare' => '=')
-                                        ), 'posts_per_page' => 10);
+                                         'posts_per_page' => 10);
                                         $the_query = new WP_Query($args);
                                         $total_count = $the_query->found_posts;  
                                         $total_page = ceil($total_count / 3 );

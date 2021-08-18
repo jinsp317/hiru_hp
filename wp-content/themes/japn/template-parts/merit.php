@@ -46,7 +46,7 @@ get_header('no_transparent');
                                         </div>
                                         <div class="merit-precess-main-mp">
                                             <div class="merit-box-mp">
-                                                <a href="#">
+                                                <a href="#merit_1">
                                                     <div class="merit-number-mp">Merit <span>1</span></div>
                                                     <div class="merit-name-mp">
                                                         <span>
@@ -60,7 +60,7 @@ get_header('no_transparent');
                                                 </a>
                                             </div>
                                             <div class="merit-box-mp">
-                                                <a href="#">
+                                                <a href="#merit_2">
                                                     <div class="merit-number-mp">Merit <span>2</span></div>
                                                     <div class="merit-name-mp">
                                                         <span>
@@ -73,7 +73,7 @@ get_header('no_transparent');
                                                 </a>
                                             </div>
                                             <div class="merit-box-mp">
-                                                <a href="#">
+                                                <a href="#merit_3">
                                                     <div class="merit-number-mp">Merit <span>3</span></div>
                                                     <div class="merit-name-mp">
                                                         <span>
@@ -89,7 +89,7 @@ get_header('no_transparent');
                                         </div>
                                     </div>
                                     <div class="merit-list-main-mp">
-                                        <div class="merit-list-mp">
+                                        <div class="merit-list-mp" id="merit_1">
                                             <div class="merit-list-number-mp">Merit <span>1</span></div>
                                             <div class="merit-list-name-mp">アドバイザーが夜職出身者</div>
                                             <div class="merit-list-info-mp">
@@ -103,7 +103,7 @@ get_header('no_transparent');
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="merit-list-mp">
+                                        <div class="merit-list-mp" id="merit_2">
                                             <div class="merit-list-number-mp">Merit <span>2</span></div>
                                             <div class="merit-list-name-mp">履歴書不要</div>
                                             <div class="merit-list-info-mp">
@@ -117,7 +117,7 @@ get_header('no_transparent');
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="merit-list-mp">
+                                        <div class="merit-list-mp" id="merit_3">
                                             <div class="merit-list-number-mp">Merit <span>3</span></div>
                                             <div class="merit-list-name-mp">夜職が職歴になる</div>
                                             <div class="merit-list-info-mp">

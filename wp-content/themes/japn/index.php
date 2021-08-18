@@ -48,8 +48,10 @@ $(document).ready(function() {
     var reg_array_5 = ['osaka', 'kyoto', 'hyogo', 'nara', 'shiga', 'mie', 'wakayama', 'area_5'];
     var reg_array_6 = ['shimane', 'hiroshima', 'yamaguchi', 'tottori', 'okayama', 'area_6'];
     var reg_array_7 = ['kagawa', 'tokushima', 'kochi', 'ehime', 'area_7'];
-    var reg_array_8 = ['fukuoka', 'saga', 'nagasaki', 'oita', 'kumamoto', 'miyazaki', 'kagoshima', 'area_8'];
-    var reg_array_9 = ['okinawa', 'area_9'];
+    var reg_array_8 = ['fukuoka', 'saga', 'nagasaki', 'oita', 'kumamoto', 'miyazaki', 'kagoshima', 'okinawa',
+        'area_8'
+    ];
+    var reg_array_9 = ['area_9'];
 
     function buildAreas() {
         var items = $('img[usemap]').find('area');
@@ -69,7 +71,7 @@ $(document).ready(function() {
         fillOpacity: 0.8,
         render_highlight: {
             fillColor: '7B6A5F',
-            fill:false,
+            fill: false,
             stroke: false
         },
         render_select: {
@@ -87,66 +89,68 @@ $(document).ready(function() {
         clickNavigate: true,
         onMouseout: function(ev) {
             var selectArea;
-            if (reg_array_1.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_1;
-            }
-            if (reg_array_2.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_2;
-            }
-            if (reg_array_3.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_3;
-            }
-            if (reg_array_4.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_4;
-            }
-            if (reg_array_5.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_5;
-            }
-            if (reg_array_6.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_6;
-            }
-            if (reg_array_7.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_7;
-            }
-            if (reg_array_8.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_8;
-            }
-            if (reg_array_9.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_9;
-            }
-            $('img[usemap]').mapster('set', false, selectArea.join(','));
+            // if (reg_array_1.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_1;
+            // }
+            // if (reg_array_2.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_2;
+            // }
+            // if (reg_array_3.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_3;
+            // }
+            // if (reg_array_4.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_4;
+            // }
+            // if (reg_array_5.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_5;
+            // }
+            // if (reg_array_6.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_6;
+            // }
+            // if (reg_array_7.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_7;
+            // }
+            // if (reg_array_8.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_8;
+            // }
+            // if (reg_array_9.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_9;
+            // }
+            $('img[usemap]').mapster('set', false, ev.key);
+            // $('img[usemap]').mapster('set', false, selectArea.join(','));
         },
         onMouseover: function(ev) {
-            var selectArea;
-            if (reg_array_1.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_1;
-            }
-            if (reg_array_2.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_2;
-            }
-            if (reg_array_3.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_3;
-            }
-            if (reg_array_4.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_4;
-            }
-            if (reg_array_5.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_5;
-            }
-            if (reg_array_6.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_6;
-            }
-            if (reg_array_7.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_7;
-            }
-            if (reg_array_8.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_8;
-            }
-            if (reg_array_9.findIndex(it => it == ev.key) > -1) {
-                selectArea = reg_array_9;
-            }
-            // $('img[usemap]').mapster('set', false);
-            $('img[usemap]').mapster('set', true, selectArea.join(','));
+            // var selectArea;
+            // if (reg_array_1.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_1;
+            // }
+            // if (reg_array_2.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_2;
+            // }
+            // if (reg_array_3.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_3;
+            // }
+            // if (reg_array_4.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_4;
+            // }
+            // if (reg_array_5.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_5;
+            // }
+            // if (reg_array_6.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_6;
+            // }
+            // if (reg_array_7.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_7;
+            // }
+            // if (reg_array_8.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_8;
+            // }
+            // if (reg_array_9.findIndex(it => it == ev.key) > -1) {
+            //     selectArea = reg_array_9;
+            // }
+            // // $('img[usemap]').mapster('set', false);
+            $('img[usemap]').mapster('set', true, ev.key);
+            // $('img[usemap]').mapster('set', true, selectArea.join(','));
             // console.log(selectArea.join(','));
             // console.log(ev.key)
 
@@ -258,7 +262,7 @@ global $wpdb;
                                     </div>
                                     <div class="banner-select-hp">
                                         <select class="custom-select" data-placeholder="特長コードから探す" id="job_spec"
-                                            multiple>                                            
+                                            multiple>
                                             <option value="駅チカ">駅チカ</option>
                                             <option value="朝ゆっくり出社">朝ゆっくり出社</option>
                                             <option value="服装自由">服装自由</option>
@@ -651,16 +655,16 @@ global $wpdb;
                                             <area joint="area_5" alt="近畿地方" title="近畿地方"
                                                 href="<?php echo get_site_url() ?>/job_list?district_vals=8"
                                                 coords="274,266, 340,293" shape="rect">
-                                            <area joint="area_6" alt="中国地方" title="中国地方" 
+                                            <area joint="area_6" alt="中国地方" title="中国地方"
                                                 href="<?php echo get_site_url() ?>/job_list?district_vals=9"
                                                 coords="217,134, 290,165" shape="rect">
-                                            <area joint="area_7" alt="四国地方" title="四国地方" 
+                                            <area joint="area_7" alt="四国地方" title="四国地方"
                                                 href="<?php echo get_site_url() ?>/job_list?district_vals=5"
                                                 coords="184,277, 253,299" shape="rect">
-                                            <area joint="area_8" alt="九州地方" title="九州地方" 
+                                            <area joint="area_8" alt="九州地方" title="九州地方"
                                                 href="<?php echo get_site_url() ?>/job_list?district_vals=4"
                                                 coords="128,135, 193,162" shape="rect">
-                                            <area joint="area_9" alt="沖縄地方" title="沖縄地方" 
+                                            <area joint="area_9" alt="沖縄地方" title="沖縄地方"
                                                 href="<?php echo get_site_url() ?>/job_list?district_vals=6"
                                                 coords="39,307, 108,332" shape="rect">
                                         </map>
@@ -679,8 +683,8 @@ global $wpdb;
                                                 </a>
                                             </div>
                                             <div class="location-info-in-hp">
-                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=8">
-                                                    <span>近畿地方から探す</span>
+                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=3">
+                                                    <span>関東地方から探す</span>
                                                 </a>
                                             </div>
                                             <div class="location-info-in-hp">
@@ -689,18 +693,8 @@ global $wpdb;
                                                 </a>
                                             </div>
                                             <div class="location-info-in-hp">
-                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=3">
-                                                    <span>関東地方から探す</span>
-                                                </a>
-                                            </div>
-                                            <div class="location-info-in-hp">
-                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=4">
-                                                    <span>九州地方から探す</span>
-                                                </a>
-                                            </div>
-                                            <div class="location-info-in-hp">
-                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=5">
-                                                    <span>四国地方から探す</span>
+                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=8">
+                                                    <span>近畿地方から探す</span>
                                                 </a>
                                             </div>
                                             <div class="location-info-in-hp">
@@ -709,11 +703,15 @@ global $wpdb;
                                                 </a>
                                             </div>
                                             <div class="location-info-in-hp">
-                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=6">
-                                                    <span>沖縄地方から探す</span>
+                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=5">
+                                                    <span>四国地方から探す</span>
                                                 </a>
                                             </div>
-                                            
+                                            <div class="location-info-in-hp">
+                                                <a href="<?php echo get_site_url() ?>/job_list?district_vals=4">
+                                                    <span>九州地方から探す</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

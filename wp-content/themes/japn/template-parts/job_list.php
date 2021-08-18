@@ -114,28 +114,24 @@ get_header('no_transparent');
                                                             <option value="7"
                                                                 <?php echo($_GET['district_vals'] == '7' ? 'selected' : '' ) ?>>
                                                                 東北地方</option>
-                                                            <option value="2"
-                                                                <?php echo($_GET['district_vals'] == '2' ? 'selected' : '' ) ?>>
-                                                                中部地方</option>
                                                             <option value="3"
                                                                 <?php echo($_GET['district_vals'] == '3' ? 'selected' : '' ) ?>>
                                                                 関東地方</option>
-                                                            <option value="4"
-                                                                <?php echo($_GET['district_vals'] == '4' ? 'selected' : '' ) ?>>
-                                                                九州地方</option>
-                                                            <option value="5"
-                                                                <?php echo($_GET['district_vals'] == '5' ? 'selected' : '' ) ?>>
-                                                                四国地方</option>
+                                                            <option value="2"
+                                                                <?php echo($_GET['district_vals'] == '2' ? 'selected' : '' ) ?>>
+                                                                中部地方</option>
                                                             <option value="8"
                                                                 <?php echo($_GET['district_vals'] == '8' ? 'selected' : '' ) ?>>
-                                                                近畿地方</option>
+                                                                近畿地方</option>   
                                                             <option value="9"
                                                                 <?php echo($_GET['district_vals'] == '9' ? 'selected' : '' ) ?>>
-                                                                中国地方</option>
-                                                            <option value="6"
-                                                                <?php echo($_GET['district_vals'] == '6' ? 'selected' : '' ) ?>>
-                                                                沖縄地方</option>
-
+                                                                中国地方</option>    
+                                                            <option value="5"
+                                                                <?php echo($_GET['district_vals'] == '5' ? 'selected' : '' ) ?>>
+                                                                四国地方</option>                                                     
+                                                            <option value="4"
+                                                                <?php echo($_GET['district_vals'] == '4' ? 'selected' : '' ) ?>>
+                                                                九州地方</option>                                                            
                                                         </select>
                                                     </div>
                                                     <div class="banner-select-hp">
@@ -290,7 +286,7 @@ get_header('no_transparent');
                                                                 } else if($districts == '3') {
                                                                     $dis_array = array('茨城県', '栃木县', '群马县', '埼玉县', '千叶县', '東京都', '神奈川县');
                                                                 } else if($districts == '4') {
-                                                                    $dis_array = array('福岡県', '佐賀県', '長崎県', '熊本県', '大分县', '宮崎県', '鹿儿岛县');
+                                                                    $dis_array = array('福岡県', '佐賀県', '長崎県', '熊本県', '大分县', '宮崎県', '鹿儿岛县', '沖縄県');
                                                                 } else if($districts == '5') {
                                                                     $dis_array = array('徳島県', '香川県', '愛媛県', '高知県');
                                                                 } else if($districts == '6') {
@@ -842,7 +838,7 @@ get_header('no_transparent');
                                                 </div>
                                                 <div class="feature-btns-hp">
                                                     <div class="feature-btn-hp">
-                                                        <a href="#" class="common-btn-hp">応募する</a>
+                                                        <a href="<?php echo get_site_url('') ?>/job_entry?id=<?php the_ID() ?>" class="common-btn-hp">応募する</a>
                                                     </div>
                                                     <div class="feature-btn-hp">
                                                         <a href="<?php echo get_site_url() ?>/job?id=<?php the_ID(); ?>"
