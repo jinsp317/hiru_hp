@@ -2,8 +2,7 @@
 
 <?php
 get_header('no_transparent');
-?>
-<?php 
+$success_mail = false;
 if(isset($_POST['contact_kind'])) {
     $shugyo = $_POST['shugyo'];
     $kinmuchi = $_POST['kinmuchi'];
@@ -27,37 +26,94 @@ if(isset($_POST['contact_kind'])) {
     // $s_agree = isset($_POST['s_agree']) ? $_POST['s_agree'] : '';
     // $s_comment = isset($_POST['s_comment']) ? $_POST['s_comment'] : '';
     $to      = 'jinsp317@163.com';
+    $time = date('Y-m-d H:i:s');
 
     $message = "
-    経験のある仕事 : ". join(',', $shugyo)."<br />
-    希望勤務地 : ". join(',', $kinmuchi)."<br />
-    生まれた年 : ".$seinen."<br />
-    姓 : ".$name_sei."<br />
-    名 : ".$name_mei."<br />
-    セイ : ".$furigana_sei."<br />
-    メイ : ".$furigana_mei."<br />
-    携帯番号 : ".$tel."<br />
-    携帯番号 : ".$tel."<br />";
+    昼ナビのサイトからの送信です。<br/>
+    ご対応をお願いいたします。<br/>
+    ---------------------------------------------------------------- <br/>
+    [経験のある仕事を教えてください]  <br/> ". join(',', $shugyo)."<br />
+    [生年月日を入力して下さい]  <br/>".$seinen."<br />
+    [希望勤務地はどこですか] ". join(',', $kinmuchi)."<br />
+    
+    [お名前とフリガナを教えてください] :<br />
+    お名前 : ".$name_sei . ' ' . $name_mei."<br />
+    フリガナ : ".$furigana_sei . ' ' . $furigana_mei ."<br />        
+    [優良企業を紹介するための連絡先を教えてください] <br /> ".
+    '携帯: '. $tel."<br />".
+    'メールアドレス: '. $email."<br />
+    ---------------------------------------------------------------- <br />
+    送信時刻　　　　：" . $time . " <br />
+    送信者情報      ：" . $to . " <br />";
    
-    $subject = 'RegisterData';
+        
+    $subject = '昼ナビのサイトよりご登録がありました。';
     $headers = "From: " . $email . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     // echo $message;
+    
     if(mail($to, $subject, $message, $headers)) {
-        echo '<script>alert("Success!"); location.href="'.home_url().'"</script>';
+        $success_mail = true;
+        // echo '<script>alert("Success!"); location.href="'.home_url().'"</script>';
     } else {
-        echo '<script>alert("Failed!"); location.href="'.home_url().'"</script>';
+        $success_mail = true;
+        // echo '<script>alert("Failed!"); location.href="'.home_url().'"</script>';
     }   
+    $headers = "From: " . $to . "\r\n";
+    $headers .= "Reply-To: " . $to . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $thanks_subject = 'ご登録、ありがとうございました。';
+    $thanks = '
+    この度は、昼ナビにご登録をいただきありがとうございます。<br/> 
+    以下の内容にて、ご登録を受け付けましたので <br/> 
+    ご確認くださいませ。 <br/> 
+
+    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ <br/> 
+    [経験のある仕事を教えてください] <br/> 
+    ' . join(',', $shugyo) . ' <br/> 
+
+    [生年月日を入力して下さい] <br/> 
+    '. $seinen . ' 年 <br/> 
+
+    [希望勤務地はどこですか？] <br/> 
+    '  .  join(',', $kinmuchi)  . ' <br/>
+
+    [お名前とフリガナを教えてください] <br/>
+    お名前：'. $name_sei . ' ' . $name_mei. ' <br/>
+    フリガナ：'. $furigana_sei . ' ' . $furigana_mei . ' <br/>
+
+    [優良企業を紹介するための連絡先を教えてください] <br/>
+    携帯：'. $tel . ' <br />
+    メールアドレス：' . $email . '<br />
+    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ <br />
+
+    内容を確認させていただいた上で、専任の担当よりご連絡をいたします。 <br />
+    以下の電話番号にてご連絡をいたしますので、ご連絡があった際は <br />
+    お手数ではございますが、ご対応のほどよろしくお願い申し上げます。 <br />
+
+    休日・祝日等をのぞき、2営業日以内にご連絡をいたしますので <br />
+    もし、連絡がなかった場合はご一報をいただけますと幸いです。<br />
+    <br />
+    <br />
+    ★*…ーーーーー…*★<br />
+    <br />
+    昼ナビ 運営事務局<br />
+    TEL :0120-560-562 <br />
+    　　 03-4405-3120<br />
+    <br />
+    ★*…ーーーーー…*★';
+    mail($email, $thanks_subject, $thanks, $headers);
 }
- ?>
+?>
+
 <main id="primary" class="site-main">
 
     <!-- CONTAIN_START -->
     <section id="contain">
         <?php get_sidebar('rightbar') ?>
-
         <div class="inner-page-main-ip">
             <div class="banner-block-ip">
                 <div class="banner-block-overlay-ip">
@@ -107,6 +163,7 @@ if(isset($_POST['contact_kind'])) {
                                             <div class="form-middle-hp">
                                                 <div class="form-middle-main-hp">
                                                     <div class="form-middle-main-border-hp">
+                                                        <?php if(!$success_mail) {?>
                                                         <div class="steps-hp">
                                                             <div class="step-hp step-1-hp active">1
                                                                 <br><span>就業状況</span>
@@ -123,8 +180,11 @@ if(isset($_POST['contact_kind'])) {
                                                             <div class="step-hp step-5-hp">5
                                                                 <br><span>連絡先</span>
                                                             </div>
+
                                                         </div>
+                                                        <?php } ?>
                                                         <div class="form-boxes-hp">
+                                                            <?php if(!$success_mail) {?>
                                                             <div class="form-boxes-in-hp form-boxes-1-hp">
                                                                 <div class="form-number-hp">
                                                                     <span>Q1</span>
@@ -171,7 +231,7 @@ if(isset($_POST['contact_kind'])) {
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-btn-main-hp">
-                                                                    <button type="submit"
+                                                                    <button type="button"
                                                                         class="common-btn-hp form-btn-hp submit_btn_1"
                                                                         disabled>次のステップへ</button>
                                                                 </div>
@@ -197,13 +257,13 @@ if(isset($_POST['contact_kind'])) {
                                                                     <div class="form-hp form-2-hp">
                                                                         <p class="year">西暦</p>
                                                                         <div class="detail"><input required=""
-                                                                                type="text" name="seinen"
+                                                                                type="text" name="seinen" id="seinen"
                                                                                 placeholder="生まれた年" value=""></div>
                                                                         <p class="year">年</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-btn-main-hp">
-                                                                    <button type="submit"
+                                                                    <button type="button"
                                                                         class="common-btn-hp form-btn-hp submit_btn_2"
                                                                         disabled>次のステップへ</button>
                                                                 </div>
@@ -322,7 +382,7 @@ if(isset($_POST['contact_kind'])) {
                                                                     <!--form-->
                                                                 </div>
                                                                 <div class="form-btn-main-hp">
-                                                                    <button type="submit"
+                                                                    <button type="button"
                                                                         class="common-btn-hp form-btn-hp submit_btn_3"
                                                                         disabled>次のステップへ</button>
                                                                 </div>
@@ -335,8 +395,7 @@ if(isset($_POST['contact_kind'])) {
                                                                         <span>ご希望の勤務地を<br>教えてください</span>
                                                                     </p>
                                                                     <div class="staff"><img
-                                                                            src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
-                                                                            alt="">
+                                                                            src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -352,28 +411,28 @@ if(isset($_POST['contact_kind'])) {
                                                                     <div class="form-hp">
                                                                         <p class="item">お名前</p>
                                                                         <div class="detail">
-                                                                            <input required="" type="text" class="name1"
+                                                                            <input required type="text" class="name1"
                                                                                 name="name_sei" placeholder="姓"
-                                                                                value="">
+                                                                                id="name_sei" value="">
                                                                             <input type="text" class="name1"
                                                                                 name="name_mei" placeholder="名"
-                                                                                value="">
+                                                                                id="name_mei" value="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-hp">
                                                                         <p class="item">フリガナ</p>
                                                                         <div class="detail">
-                                                                            <input required="" type="text" class="name2"
+                                                                            <input required type="text" class="name2"
                                                                                 name="furigana_sei" placeholder="セイ"
-                                                                                value="" disabled="">
+                                                                                value="" id="furigana_sei">
                                                                             <input type="text" class="name2"
                                                                                 name="furigana_mei" placeholder="メイ"
-                                                                                value="" disabled="">
+                                                                                value="" id="furigana_mei">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-btn-main-hp">
-                                                                    <button type="submit"
+                                                                    <button type="button"
                                                                         class="common-btn-hp form-btn-hp submit_btn_4"
                                                                         disabled>次のステップへ</button>
                                                                 </div>
@@ -404,21 +463,21 @@ if(isset($_POST['contact_kind'])) {
                                                                         <p class="item">携帯番号</p>
                                                                         <div class="detail"><input required=""
                                                                                 type="tel" class="tel" name="tel"
-                                                                                placeholder="000-0000-0000" value="">
+                                                                                id="tel" placeholder="000-0000-0000"
+                                                                                value="">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-hp form-email-hp">
                                                                         <p class="item">メールアドレス</p>
                                                                         <div class="detail">
                                                                             <input required="" type="email"
-                                                                                class="email" name="email"
-                                                                                placeholder="xxx@xxx.xxx" value=""
-                                                                                disabled="">
+                                                                                class="email" name="email" id="email"
+                                                                                placeholder="xxx@xxx.xxx" value="">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-btn-main-hp">
-                                                                    <button type="submit"
+                                                                    <button type="button"
                                                                         class="common-btn-hp form-btn-hp submit_btn_5"
                                                                         disabled>確認する</button>
                                                                 </div>
@@ -436,6 +495,107 @@ if(isset($_POST['contact_kind'])) {
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="form-boxes-in-hp form-boxes-6-hp"
+                                                                style="display: none">
+                                                                <p class="check_p4 text-center h1">CHECK</p>
+                                                                <h2 class="text-center">入力に間違いはありませんか？</h2>
+                                                                <div class="forms container mt-2">
+                                                                    <div class="form-item top_border">
+                                                                        <p class="form_query font-weight-bold">
+                                                                            現在就業していますか？</p>
+                                                                        <p id="answer_1" class="mt-1">
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="form-item">
+                                                                        <p class="form_query font-weight-bold">
+                                                                            生年月日を入力して下さい</p>
+                                                                        <p id="answer_2" class="mt-1">
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="form-item">
+                                                                        <p class="form_query font-weight-bold">
+                                                                            希望勤務地はどこですか？</p>
+                                                                        <p id="answer_3" class="mt-1">
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="form-item">
+                                                                        <p class="form_query font-weight-bold">
+                                                                            お名前とフリガナを教えてください</p>
+                                                                        <p class="mt-1">
+                                                                            <span class="text-muted">お名前：</span>
+                                                                            <span id="name_i"></span>
+                                                                        </p>
+                                                                        <p>
+                                                                            <span class="text-muted">フリガナ：</span>
+                                                                            <span id="furigana"></span>
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="form-item">
+                                                                        <p class="form_query font-weight-bold">
+                                                                            優良企業を紹介するための連絡先を教えてください</p>
+                                                                        <p class="mt-1">
+                                                                            <span class="text-muted">携帯：</span>
+                                                                            <span id="tel_txt"></span>
+                                                                        </p>
+                                                                        <p>
+                                                                            <span class="text-muted">メールアドレス：</span>
+                                                                            <span id="email_txt"></span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="button"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_6">送信する</button>
+                                                                </div>
+                                                                <div class="back-hp">
+                                                                    <input type="button" class="back_btn back_btn_6"
+                                                                        value="戻って修正する">
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment">
+                                                                        <span>最終確認を<br />お願いいたします！</span>
+                                                                    </p>
+                                                                    <div class="staff">
+                                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <?php } else {?>
+                                                            <div class="form-boxes-in-hp form-boxes-7-hp text-center">
+                                                                <h2 class="text-center">送信完了</h2>
+                                                                <div class="forms container mt-2">
+                                                                    <p class="py-4 h5">
+                                                                        昼ナビへのエントリーを受け付けました。<br />
+                                                                        確認メールをお送りさせていただいております。<br />
+                                                                        内容確認後、担当者よりご連絡させていただきます。<br />
+                                                                    </p>
+                                                                    <p class="text-danger py-4">
+                                                                        自動返信メールが届かない場合は、<br />
+                                                                        フォーム内容が送信出来ていない可能性がございます。<br />
+                                                                        お手数をおかけいたしますが、再度ご入力いただくか、<br />
+                                                                        直接お電話にてお問い合わせください。<br />
+                                                                    </p>
+                                                                </div>
+                                                                <div class="form-btn-main-hp">
+                                                                    <button type="button"
+                                                                        class="common-btn-hp form-btn-hp submit_btn_7">ホームへ戻る</button>
+                                                                </div>
+                                                                <div class="guidance-hp">
+                                                                    <p class="comment">
+                                                                        <span>送信が<br />完了しました！</span>
+                                                                    </p>
+                                                                    <div class="staff">
+                                                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/staff.png"
+                                                                            alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -683,8 +843,32 @@ $(document).ready(function() {
             }
         }
         $('.submit_btn_5').on('click', function(e) {
-            $('#reservation').submit();
+            $(".form-boxes-5-hp").css("display", "none");
+            $(".form-boxes-6-hp").fadeIn();
+            var shugyo = $('input[name=\'shugyo[]\']:checked').map(function() {
+                return $(this).val()
+            }).get();
+
+            $('#answer_1').html(shugyo.join(','));
+            var seinen = $('#seinen').val();
+            $('#answer_2').html(seinen + '年');
+            var kinmuchi = $('input[name=\'kinmuchi[]\']:checked').map(function() {
+                return $(this).val()
+            }).get();
+            $('#answer_3').html(kinmuchi.join(','));
+            var name_sei = $('#name_sei').val();
+            var name_mei = $('#name_mei').val();
+            $('#name_i').html(name_sei + ' ' + name_mei);
+            var furigana_sei = $('#furigana_sei').val();
+            var furigana_mei = $('#furigana_mei').val();
+            $('#furigana').html(furigana_sei + ' ' + furigana_mei);
+            var tel = $('#tel').val();
+            $('#tel_txt').html(tel);
+            var email = $('#email').val();
+            $('#email_txt').html(email);
+            $('.steps-hp').addClass('d-none');
         })
+
         $(".back_btn_5").click(function() {
             $(".form-boxes-5-hp").css("display", "none");
             $(".form-boxes-4-hp").fadeIn();
@@ -692,5 +876,19 @@ $(document).ready(function() {
             $(".step-4-hp").addClass("active");
         });
     });
+    $('.back_btn_6').on('click', function() {
+        $(".form-boxes-6-hp").css("display", "none");
+        $(".form-boxes-5-hp").fadeIn();
+        $('.steps-hp').removeClass('d-none');
+        $(".step-hp").removeClass("active");
+        $(".step-5-hp").addClass("active");
+    });
+    $('.submit_btn_6').on('click', function() {
+        $('#reservation').submit();
+    })
+    $('.submit_btn_7').on('click', function() {
+        self.location = './';
+    })
+
 })
 </script>

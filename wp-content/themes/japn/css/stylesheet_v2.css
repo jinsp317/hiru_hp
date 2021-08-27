@@ -4537,3 +4537,23 @@ img {
 .form-option-5-hp .form-email-hp input {
 	width: 100%;
 }
+.check_p4 {
+    color:#e69632 !important;
+    font-weight: 100;
+    font-family: 'Inter', 'sans-serif';
+    text-decoration:underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #f5e100;
+}
+.forms .form-item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom:#e1e1e1 1px solid;
+}
+.form-item .form_query::before{
+    content: "Q. ";
+}
+.top_border {
+    border-top:#e1e1e1 1px solid;
+}

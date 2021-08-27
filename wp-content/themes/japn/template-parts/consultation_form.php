@@ -4,7 +4,7 @@
 get_header('no_transparent');
 ?>
 <?php 
-if(isset($_POST['contact-option'])) {
+if(isset($_POST['contact_flag'])) {
     $s_name = isset($_POST['s_name']) ? $_POST['s_name'] : '';
     $s_kana = isset($_POST['s_kana']) ? $_POST['s_kana'] : '';
     $district_val = isset($_POST['district_val']) ? $_POST['district_val'] : '';
@@ -15,26 +15,67 @@ if(isset($_POST['contact-option'])) {
     $s_content = isset($_POST['s_content']) ? $_POST['s_content'] : '';
     $s_agree = isset($_POST['s_agree']) ? $_POST['s_agree'] : '';
     $to      = 'jinsp317@163.com';
-
+    $subject = '昼ナビのサイトよりご相談の依頼がありました。';
+    $time = date('Y-m-d H:i:s');
     $message = "
+    昼ナビのサイトからの送信です。<br/>
+    ご対応をお願いいたします。<br />
+    ---------------------------------------------------------------- <br />
     氏名 : ".$s_name."<br />
     カナ : ".$s_kana."<br />    
-    希望勤務地 : ".$district_val."<br />
     電話番号 : ".$s_phone."<br />
+    希望勤務地 : ".$district_val."<br />    
     メールアドレス : ".$s_email."<br />
     相談内容 : ". join(',', $detail_ch )."<br />
     相談内容（詳細） : ".$s_content."<br />
-    ";
-    $subject = 'ConsultData';
+    ---------------------------------------------------------------- <br />
+    送信時刻　　　　：". $time . " <br />
+    送信者情報 ：".$s_email." <br />
+    ";    
     $headers = "From: " . $s_email . "\r\n";
     $headers .= "Reply-To: " . $s_email . "\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    if(mail($to, $subject, $message, $headers)) {
-        echo '<script>alert("Success!"); location.href="'.home_url().'"</script>';
-    } else {
-        echo '<script>alert("Failed!"); location.href="'.home_url().'"</script>';
-    }   
+    // if(mail($to, $subject, $message, $headers)) {
+    mail($to, $subject, $message, $headers);
+    //     echo '<script>alert("Success!"); location.href="'.home_url().'"</script>';
+    // } else {
+    //     echo '<script>alert("Failed!"); location.href="'.home_url().'"</script>';
+    // }   
+    
+    $headers = "From: " . $to . "\r\n";
+    $headers .= "Reply-To: " . $to . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $subject = "ご相談のご連絡ありがとうございます。";
+    $message = "
+    この度は、昼ナビにご相談のご依頼をいただき <br />
+    ありがとうございます。<br />
+
+    以下の内容にて、ご登録を受け付けましたので <br />
+    ご確認くださいませ。<br />
+    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ <br />
+    氏名 : ".$s_name."<br />
+    カナ : ".$s_kana."<br />    
+    電話番号 : ".$s_phone."<br />
+    メールアドレス : ".$s_email."<br />
+    希望勤務地 : ".$district_val."<br />        
+    相談内容 : ". join(',', $detail_ch )."<br />
+    相談内容（詳細） : ".$s_content."<br />
+    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ <br />
+    内容を確認させていただいた上で、専任の担当よりご連絡をいたします。<br />
+    以下の電話番号にてご連絡をいたしますので、ご連絡があった際は <br />
+    お手数ではございますが、ご対応のほどよろしくお願い申し上げます。 <br />
+    休日・祝日等をのぞき、2営業日以内にご連絡をいたしますので <br />
+    もし、連絡がなかった場合はご一報をいただけますと幸いです。<br />
+    ★*…ーーーーー…*★ <br />
+    昼ナビ 運営事務局 <br />
+    TEL :0120-560-562 <br />
+    　　 03-4405-3120 <br />
+    <br />
+    ★*…ーーーーー…*★ <br />
+    ";    
+    mail($s_email, $subject, $message, $headers);
 }
 
 ?>
@@ -73,6 +114,7 @@ if(isset($_POST['contact-option'])) {
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 about-block-in-ip">
                             <form method="POST" action="" id="cosultFrm">
+                                <input type="hidden" name="contact_flag" value="1"/>
                                 <div class="signup-jep signup-cfp">
                                     <div class="signup-in-jep">
                                         <div class="signup-title-jep">

@@ -201,6 +201,146 @@
         justify-content: center;
     }
 
+    .form-block-hp {
+        padding: 20px 0 40px 0;
+    }
+
+    .form-logo-hp img {
+        max-width: 150px;
+    }
+
+    .form-title-name-hp {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .form-title-tags-in-hp {
+        padding: 6px 16px 8px 16px;
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+    .form-title-tags-hp {
+        padding: 10px 0;
+    }
+
+    .step-hp {
+        flex-direction: column;
+        padding: 15px 1px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .step-hp span {
+        font-size: 10px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .form-boxes-in-hp {
+        padding: 30px 15px 15px 15px;
+    }
+
+    .form-number-hp {
+        font-size: 40px;
+        letter-spacing: 3px;
+        line-height: 30px;
+    }
+
+    .form-title-hp h2 {
+        font-size: 25px;
+        line-height: 40px;
+    }
+
+    .form-title-hp h2 span {
+        font-size: 16px;
+    }
+
+    .form-title-hp {
+        padding: 15px 0 20px 0;
+    }
+
+    .form-option-hp {
+        padding: 0 0 20px 0;
+    }
+
+    .guidance-hp {
+        display: none;
+    }
+
+    .form-hp {
+        width: calc(50% - 8px);
+    }
+
+    .form-hp input[type="checkbox"]+label {
+        padding: 10px 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+    .form-hp:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .form-btn-hp {
+        padding: 15px 10px;
+        border-radius: 12px;
+        font-size: 18px;
+        line-height: 28px;
+        min-width: 200px;
+    }
+
+    .form-2-hp .year {
+        font-size: 16px;
+    }
+
+    .form-2-hp input {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .back-hp {
+        padding-top: 15px;
+        text-align: center;
+    }
+
+    .back_btn {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .form-option-3-hp .form-hp {
+        width: calc(50% - 8px);
+    }
+
+    .form-option-3-hp .form-hp:nth-child(5n) {
+        margin-right: 15px;
+    }
+
+    .form-option-3-hp .form-hp:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .form-option-4-hp .form-hp {
+        display: block;
+    }
+
+    .form-option-4-hp .form-hp .item {
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+
+    .form-option-4-hp .form-hp .detail {
+        width: 100%;
+    }
+
+    .form-option-4-hp .form-hp input {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
     .daytime-block-hp {
         padding: 40px 0 20px 0;
     }
@@ -620,15 +760,19 @@
 
     .merit-number-mp {
         padding-top:5px;
-        font-size: 40px;
+        font-size: 45px;
+    }
+    .merit-number-mp span{
+        font-size:100px;
     }
     .merit-arrow-mp {
-        padding: 0 0 0 0;
+        padding:0;
+        padding-top:25px;
     }
     .merit-name-mp {
         font-size: 20px;
-        line-height: 1.2;
-        height:70px !important;
+        line-height: 1.5;
+        height:50px !important;
     }
 
     .merit-list-mp {
@@ -3494,6 +3638,150 @@
     .banner-right-in-hp {
         background-size: cover;
         justify-content: center;
+    }
+
+    .form-block-hp {
+        padding: 20px 0 40px 0;
+    }
+
+    .form-logo-hp img {
+        max-width: 150px;
+    }
+
+    .form-title-name-hp {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .form-title-tags-in-hp {
+        padding: 6px 16px 8px 16px;
+        font-size: 14px;
+        line-height: 26px;
+    }
+
+    .form-title-tags-hp {
+        padding: 10px 0;
+    }
+
+    .step-hp {
+        flex-direction: column;
+        padding: 15px 1px;
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .step-hp span {
+        font-size: 14px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .form-boxes-in-hp {
+        padding: 30px 15px 15px 15px;
+    }
+
+    .form-number-hp {
+        font-size: 40px;
+        letter-spacing: 3px;
+        line-height: 30px;
+    }
+
+    .form-title-hp h2 {
+        font-size: 25px;
+        line-height: 40px;
+    }
+
+    .form-title-hp h2 span {
+        font-size: 16px;
+    }
+
+    .form-title-hp {
+        padding: 15px 0 20px 0;
+    }
+
+    .form-option-hp {
+        padding: 0 0 20px 0;
+    }
+
+    .guidance-hp {
+        display: none;
+    }
+
+    .form-hp {
+        width: calc(33.33% - 10px);
+    }
+
+    .form-hp input[type="checkbox"]+label {
+        padding: 10px 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+    .form-hp:nth-child(4n) {
+        margin-right: 15px;
+    }
+
+    .form-hp:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .form-btn-hp {
+        padding: 15px 10px;
+        border-radius: 12px;
+        font-size: 18px;
+        line-height: 28px;
+        min-width: 200px;
+    }
+
+    .form-2-hp .year {
+        font-size: 16px;
+    }
+
+    .form-2-hp input {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .back-hp {
+        padding-top: 15px;
+        text-align: center;
+    }
+
+    .back_btn {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    .form-option-3-hp .form-hp {
+        width: calc(33.33% - 10px);
+    }
+
+    .form-option-3-hp .form-hp:nth-child(5n) {
+        margin-right: 15px;
+    }
+
+    .form-option-3-hp .form-hp:nth-child(3n) {
+        margin-right: 0;
+    }
+
+    .form-option-4-hp .form-hp {
+        display: block;
+    }
+
+    .form-option-4-hp .form-hp .item {
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+
+    .form-option-4-hp .form-hp .detail {
+        width: 100%;
+    }
+
+    .form-option-4-hp .form-hp input {
+        font-size: 16px;
+        padding: 10px 15px;
     }
 
     .daytime-block-hp {
