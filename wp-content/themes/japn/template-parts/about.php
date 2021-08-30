@@ -17,7 +17,7 @@ get_header('no_transparent');
                                 <div class="banner-middle-ip">
                                     <div class="breadcrumb-ip">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#">昼ナビTOP</a></li>
+                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url(); ?>">昼ナビTOP</a></li>
                                             <li class="breadcrumb-item active">昼ナビとは </li>
                                         </ol>
                                     </div>

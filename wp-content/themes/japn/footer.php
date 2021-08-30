@@ -13,7 +13,7 @@
 <!-- FOOTER_START -->
 <footer id="footer">
     <div class="back-to-top-hp" id="gototop">
-        <a href="javascript:void(0)"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/backtotop.svg"
+        <a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/backtotop.svg"
                 alt="" /></a>
     </div>
     <div class="footer-top-hp">

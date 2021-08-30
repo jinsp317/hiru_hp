@@ -799,7 +799,7 @@ global $wpdb;
                                 <?php if ($the_query->have_posts()): ?>
                                 <?php while ($the_query->have_posts()): $the_query->the_post();?>
                                 <div class="career-box-hp">
-                                    <a href="<?php echo get_site_url() ?>/interview_detail?id=<?php the_ID() ?>">
+                                    <a href="<?php echo get_site_url() ?>/interview_details?id=<?php the_ID() ?>">
                                         <div class="career-box-img-hp">
                                             <?php 
                                                     $logo = get_field('main_image'); 
