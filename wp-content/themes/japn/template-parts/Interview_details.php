@@ -2,6 +2,12 @@
 <?php
 get_header('no_transparent');
 ?>
+<?php
+    $args = array('p' => $_GET['id'], 'post_type' => 'interview');
+    $the_query = new WP_Query($args);
+
+    if ($the_query->have_posts()) {
+            $the_query->the_post();?>
 <main id="primary" class="site-main">
     <!-- CONTAIN_START -->
     <section id="contain">
@@ -15,13 +21,16 @@ get_header('no_transparent');
                                 <div class="banner-middle-ip">
                                     <div class="breadcrumb-ip">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
-                                            <li class="breadcrumb-item"><a href="<?php echo get_site_url() ?>/interview_list">転職者インタビュー</a></li>
-                                            <li class="breadcrumb-item active"><?php the_field('title') ?></li>
+                                            <li class="breadcrumb-item"><a
+                                                    href="<?php echo get_site_url() ?>">昼ナビTOP</a></li>
+                                            <li class="breadcrumb-item"><a
+                                                    href="<?php echo get_site_url() ?>/interview_list">転職者インタビュー</a>
+                                            </li>
+                                            <li class="breadcrumb-item active"><?php the_title() ?></li>
                                         </ol>
                                     </div>
                                     <div class="inner-title-ip">
-                                        <h2>転職者インタビュー：XXXX株式会社でのお仕事</h2>
+                                        <h2><?php the_field('title') ?></h2>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -37,12 +46,7 @@ get_header('no_transparent');
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 about-block-in-ip">
-                            <?php
-                            $args = array('p' => $_GET['id'], 'post_type' => 'interview');
-                            $the_query = new WP_Query($args);
-        
-                            if ($the_query->have_posts()) {
-                                 $the_query->the_post();?>
+
                             <div class="about-middle-ip">
                                 <div class="about-left-ip">
                                     <div class="about-box-ip interview-box-idp">
@@ -116,7 +120,8 @@ get_header('no_transparent');
                                             <?php endif;?>
 
                                         </div>
-                                        <div class="more-inertview-idp"><a href="<?php echo get_site_url()?>/interview_list">もっとみる＞</a></div>
+                                        <div class="more-inertview-idp"><a
+                                                href="<?php echo get_site_url()?>/interview_list">もっとみる＞</a></div>
                                     </div>
                                 </div>
                                 <?php get_sidebar('wishes') ?>

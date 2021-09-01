@@ -116,6 +116,9 @@ $(document).ready(function() {
             // if (reg_array_9.findIndex(it => it == ev.key) > -1) {
             //     selectArea = reg_array_9;
             // }
+            if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator.userAgent) || /Windows Phone/i.test(window.navigator.userAgent) || /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator.userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
+                return ;
+            }
             $('img[usemap]').mapster('set', false, ev.key);
             // $('img[usemap]').mapster('set', false, selectArea.join(','));
         },
@@ -149,6 +152,9 @@ $(document).ready(function() {
             //     selectArea = reg_array_9;
             // }
             // // $('img[usemap]').mapster('set', false);
+            if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator.userAgent) || /Windows Phone/i.test(window.navigator.userAgent) || /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator.userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
+                return ;
+            }
             $('img[usemap]').mapster('set', true, ev.key);
             // $('img[usemap]').mapster('set', true, selectArea.join(','));
             // console.log(selectArea.join(','));
@@ -156,6 +162,7 @@ $(document).ready(function() {
 
         }
     });
+    // AbstractChosen.browser_is_supported = function() { return true; }
     $("#job_spec").chosen({
         allow_single_deselect: true,
         disable_search_threshold: 0
@@ -176,6 +183,17 @@ $(document).ready(function() {
 .search-choice {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
+}
+
+@media(min-width:0px) and (max-width:575px) {
+
+    .active-result,
+    .search-choice span {
+        font-size: 14px !important;
+    }
+    .chosen-choices {
+        font-size: 14px !important;
+    }
 }
 </style>
 <?php
@@ -756,6 +774,8 @@ global $wpdb;
                                         <div class="pickup-box-details-hp">
                                             <div class="pickup-tag-main-hp">
                                                 <div class="pickup-tag-hp">勤務地</div>
+                                                <div class="pickup-tag-hp text-white pickup-address_bg">
+                                                    <?php the_field('addressRegion') ?></div>
                                             </div>
                                             <div class="pickup-box-name-hp"><?php the_title() ?></div>
                                         </div>

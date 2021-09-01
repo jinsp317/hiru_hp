@@ -15,6 +15,17 @@
     padding-top: 5px !important;
     padding-bottom: 5px !important;
 }
+
+@media(min-width:0px) and (max-width:575px) {
+    .active-result,
+    .search-choice span {
+        font-size: 14px !important;
+    }
+
+    .chosen-choices {
+        font-size: 14px !important;
+    }
+}
 </style>
 <?php
 get_header('no_transparent');
@@ -122,16 +133,16 @@ get_header('no_transparent');
                                                                 中部地方</option>
                                                             <option value="8"
                                                                 <?php echo($_GET['district_vals'] == '8' ? 'selected' : '' ) ?>>
-                                                                近畿地方</option>   
+                                                                近畿地方</option>
                                                             <option value="9"
                                                                 <?php echo($_GET['district_vals'] == '9' ? 'selected' : '' ) ?>>
-                                                                中国地方</option>    
+                                                                中国地方</option>
                                                             <option value="5"
                                                                 <?php echo($_GET['district_vals'] == '5' ? 'selected' : '' ) ?>>
-                                                                四国地方</option>                                                     
+                                                                四国地方</option>
                                                             <option value="4"
                                                                 <?php echo($_GET['district_vals'] == '4' ? 'selected' : '' ) ?>>
-                                                                九州地方</option>                                                            
+                                                                九州地方</option>
                                                         </select>
                                                     </div>
                                                     <div class="banner-select-hp">
@@ -328,7 +339,7 @@ get_header('no_transparent');
                                                         <?php $job_spec = $_GET['job_spec']; ?>
                                                         <select class="custom-select border"
                                                             data-placeholder="特長コードから探す" id="job_spec" size="1"
-                                                            multiple>                                                            
+                                                            multiple>
                                                             <option value="駅チカ"
                                                                 <?php 
                                                                 // echo strpos($job_spec, '駅チカ');
@@ -838,7 +849,8 @@ get_header('no_transparent');
                                                 </div>
                                                 <div class="feature-btns-hp">
                                                     <div class="feature-btn-hp">
-                                                        <a href="<?php echo get_site_url('') ?>/job_entry?id=<?php the_ID() ?>" class="common-btn-hp">応募する</a>
+                                                        <a href="<?php echo get_site_url('') ?>/job_entry?id=<?php the_ID() ?>"
+                                                            class="common-btn-hp">応募する</a>
                                                     </div>
                                                     <div class="feature-btn-hp">
                                                         <a href="<?php echo get_site_url() ?>/job?id=<?php the_ID(); ?>"
@@ -941,7 +953,7 @@ $(document).ready(function() {
         url += '&job_keyword=' + $('#job_keyword').val();
         self.location = url;
     });
-    $('#district_vals').on('change', function(){
+    $('#district_vals').on('change', function() {
         // console.log($(this).val())
         var url = "<?php  the_permalink();?>?";
         url += 'district_vals=' + $(this).val();

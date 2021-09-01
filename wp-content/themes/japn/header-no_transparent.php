@@ -32,7 +32,7 @@
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/owl.theme.default.css" rel="stylesheet"
         type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet_v2.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive.css" rel="stylesheet" type="text/css">    
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive_v2.css" rel="stylesheet" type="text/css">    
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/chosen.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.min.js"></script>
@@ -45,7 +45,7 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
     <script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.imagemapster.min.js"></script>
-    <script src="<?php echo get_stylesheet_directory_uri();?>/js/chosen.jquery.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/js/chosen.jquery.js"></script>
 </head>
 <?php get_template_part('google-for-jobs'); ?>
 <body <?php body_class();?>>
