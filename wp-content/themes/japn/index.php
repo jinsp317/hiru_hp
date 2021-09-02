@@ -175,6 +175,8 @@ $(document).ready(function() {
         allow_single_deselect: true,
         disable_search_threshold: 0
     });
+    <?php } else { ?>
+        // $("#job_spec").selectmenu();
     <?php } ?>
 
     // // if ($('.chosen-container').length > 0) {

@@ -33,12 +33,15 @@
         type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet_v2.css" rel="stylesheet" type="text/css">    
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive_v2.css" rel="stylesheet" type="text/css">
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
+    
     <?php if(wp_is_mobile()) { ?>
+        <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
-    <script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.mobile-1.4.5.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.mobile.custom.js"></script>
+    
     <?php } else { ?>
         <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/chosen.min.css" rel="stylesheet" type="text/css">
+        <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri();?>/js/chosen.jquery.min.js"></script>
     <?php  }?>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
