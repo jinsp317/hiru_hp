@@ -130,6 +130,7 @@
 
     .banner-block-hp {
         border-width: 10px;
+        background-position: 33% top !important;
     }
 
     .banner-middle-hp {
@@ -543,7 +544,9 @@
         width: 100%;
         margin: 0 0 15px 0;
     }
-
+    .overlay-mobile-menu-hp{
+        z-index: 5 !important;
+    }
     .search-area-bottom-hp .daytime-bottom-parts-in-details-hp h3 {
         font-size: 110px;
     }

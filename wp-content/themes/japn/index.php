@@ -116,8 +116,11 @@ $(document).ready(function() {
             // if (reg_array_9.findIndex(it => it == ev.key) > -1) {
             //     selectArea = reg_array_9;
             // }
-            if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator.userAgent) || /Windows Phone/i.test(window.navigator.userAgent) || /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator.userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
-                return ;
+            if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator
+                    .userAgent) || /Windows Phone/i.test(window.navigator.userAgent) ||
+                /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator
+                    .userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
+                return;
             }
             $('img[usemap]').mapster('set', false, ev.key);
             // $('img[usemap]').mapster('set', false, selectArea.join(','));
@@ -152,8 +155,11 @@ $(document).ready(function() {
             //     selectArea = reg_array_9;
             // }
             // // $('img[usemap]').mapster('set', false);
-            if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator.userAgent) || /Windows Phone/i.test(window.navigator.userAgent) || /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator.userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
-                return ;
+            if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(window.navigator
+                    .userAgent) || /Windows Phone/i.test(window.navigator.userAgent) ||
+                /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window.navigator
+                    .userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)) {
+                return;
             }
             $('img[usemap]').mapster('set', true, ev.key);
             // $('img[usemap]').mapster('set', true, selectArea.join(','));
@@ -162,11 +168,22 @@ $(document).ready(function() {
 
         }
     });
+    $('map').imageMapResize();
     // AbstractChosen.browser_is_supported = function() { return true; }
+    <?php if(!wp_is_mobile()) { ?>
     $("#job_spec").chosen({
         allow_single_deselect: true,
         disable_search_threshold: 0
     });
+    <?php } ?>
+
+    // // if ($('.chosen-container').length > 0) {
+    //   $('.chosen-container').on('touchstart', function(e){
+    //     e.stopPropagation(); e.preventDefault();
+    //     // Trigger the mousedown event.
+    //     $(this).trigger('mousedown');
+    //   });
+    // }
 });
 </script>
 <style>
@@ -191,6 +208,7 @@ $(document).ready(function() {
     .search-choice span {
         font-size: 14px !important;
     }
+
     .chosen-choices {
         font-size: 14px !important;
     }
@@ -215,7 +233,7 @@ global $wpdb;
                                         <div class="banner-title-left-hp">公開中のお仕事</div>
                                         <!-- <div class="banner-title-right-hp">XXX<span>件</span></div> -->
                                     </div>
-                                    <div class="banner-select-hp">
+                                    <div class="banner-select-hp ui-field-contain">
                                         <select class="custom-select" id="district_val">
                                             <option value="">都道府県</option>
                                             <option value="東京都">東京都</option>
@@ -266,7 +284,7 @@ global $wpdb;
                                             <option value="沖縄県">沖縄県</option>
                                         </select>
                                     </div>
-                                    <div class="banner-select-hp">
+                                    <div class="banner-select-hp ui-field-contain">
                                         <select class="custom-select" id="job_type">
                                             <option value="">職種</option>
                                             <?php foreach ($job_list as $key => $job_types) { ?>
@@ -278,9 +296,15 @@ global $wpdb;
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="banner-select-hp">
-                                        <select class="custom-select" data-placeholder="特長コードから探す" id="job_spec"
-                                            multiple>
+                                    <div class="banner-select-hp ui-field-contain">
+                                        <select class="custom-select"  id="job_spec"
+                                            <?php if(!wp_is_mobile()) { echo 'data-placeholder="特長コードから探す"'; }
+                                            else { echo 'data-placeholder="true"'; }?>
+                                            multiple="multiple" data-native-menu="false">
+                                            <?php if(wp_is_mobile()) { ?>
+                                            <option value="" selected="selected" disabled="disabled">特長コードから探す</option>
+                                            <?php }?>
+
                                             <option value="駅チカ">駅チカ</option>
                                             <option value="朝ゆっくり出社">朝ゆっくり出社</option>
                                             <option value="服装自由">服装自由</option>

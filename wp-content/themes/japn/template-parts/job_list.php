@@ -17,6 +17,7 @@
 }
 
 @media(min-width:0px) and (max-width:575px) {
+
     .active-result,
     .search-choice span {
         font-size: 14px !important;
@@ -337,9 +338,13 @@ get_header('no_transparent');
                                                     </div>
                                                     <div class="banner-select-hp">
                                                         <?php $job_spec = $_GET['job_spec']; ?>
-                                                        <select class="custom-select border"
-                                                            data-placeholder="特長コードから探す" id="job_spec" size="1"
-                                                            multiple>
+                                                        <select class="custom-select border" id="job_spec" <?php if(!wp_is_mobile()) { echo 'data-placeholder="特長コードから探す"'; }
+                                            else { echo 'data-placeholder="true"'; }?> multiple="multiple"
+                                                            data-native-menu="false">
+                                                            <?php if(wp_is_mobile()) { ?>
+                                                            <option value="" selected="selected" disabled="disabled">
+                                                                特長コードから探す</option>
+                                                            <?php }?>
                                                             <option value="駅チカ"
                                                                 <?php 
                                                                 // echo strpos($job_spec, '駅チカ');
@@ -941,9 +946,7 @@ $(document).ready(function() {
         url += '&job_keyword=' + $('#job_keyword').val();
         self.location = url;
     });
-    $("#job_spec").chosen({
-        allow_single_deselect: true
-    });
+
     $('#reset_query').on('click', function() {
         var url = "<?php  the_permalink();?>?";
         url += 'district_vals=' + $('#district_vals').val();
@@ -963,5 +966,12 @@ $(document).ready(function() {
         url += '&job_keyword=' + $('#job_keyword').val();
         self.location = url;
     })
+    $('.common-btn-hp').removeClass('ui-btn');
+    <?php if(!wp_is_mobile()) { ?>
+    $("#job_spec").chosen({
+        allow_single_deselect: true,
+        disable_search_threshold: 0
+    });
+    <?php } ?>
 })
 </script>

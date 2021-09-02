@@ -31,11 +31,18 @@
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/owl.theme.default.css" rel="stylesheet"
         type="text/css">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet_v2.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet_v2.css" rel="stylesheet" type="text/css">    
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive_v2.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/chosen.min.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
+    <?php if(wp_is_mobile()) { ?>
+    <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/jquery.mobile-1.4.5.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.mobile-1.4.5.js"></script>
+    <?php } else { ?>
+        <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/chosen.min.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo get_stylesheet_directory_uri();?>/js/chosen.jquery.min.js"></script>
+    <?php  }?>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.min.js"></script>
+    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,7 +52,8 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
     <script src="<?php echo get_stylesheet_directory_uri();?>/js/jquery.imagemapster.min.js"></script>
-    <script src="<?php echo get_stylesheet_directory_uri();?>/js/chosen.jquery.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri();?>/js/imageMapResizer.min.js"></script>
+    
 </head>
 <?php get_template_part('google-for-jobs');?>
 
