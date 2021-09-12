@@ -22,7 +22,7 @@ if(isset($_POST['contact_kind'])) {
     // $s_content = isset($_POST['s_content']) ? $_POST['s_content'] : '';
     // $s_agree = isset($_POST['s_agree']) ? $_POST['s_agree'] : '';
     // $s_comment = isset($_POST['s_comment']) ? $_POST['s_comment'] : '';
-    $to      = 'jinsp317@163.com';
+    $to      = 'agent@rc-group.co.jp';
 
     $message = "
     経験のある仕事 : ". join(',', $shugyo)."<br />

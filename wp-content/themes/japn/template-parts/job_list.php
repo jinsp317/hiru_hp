@@ -338,12 +338,13 @@ get_header('no_transparent');
                                                     </div>
                                                     <div class="banner-select-hp">
                                                         <?php $job_spec = $_GET['job_spec']; ?>
-                                                        <select class="custom-select border" id="job_spec" <?php if(!wp_is_mobile()) { echo 'data-placeholder="特長コードから探す"'; }
-                                            else { echo 'data-placeholder="true"'; }?> multiple="multiple"
-                                                            data-native-menu="false">
+                                                        <select class="custom-select border" id="job_spec" <?php 
+                                                        if(!wp_is_mobile()) { echo 'data-placeholder="特長コード" data-native-menu="false"'; }
+                                                                else { echo 'data-placeholder="true"'; }?>
+                                                            multiple="multiple">
                                                             <?php if(wp_is_mobile()) { ?>
                                                             <option value="" selected="selected" disabled="disabled">
-                                                                特長コードから探す</option>
+                                                                特長コード</option>
                                                             <?php }?>
                                                             <option value="駅チカ"
                                                                 <?php 

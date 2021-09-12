@@ -19,7 +19,7 @@ get_header('no_transparent');
         $tel = isset($_POST['tel']) ? $_POST['tel'] : '';
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $job_no = isset($_POST['job_no']) ? $_POST['job_no'] : '';       
-        $to      = 'jinsp317@163.com';
+        $to      = 'agent@rc-group.co.jp';
         $time = date('Y-m-d H:i:s');
         $message = "
         昼ナビのサイトからの送信です。<br/>

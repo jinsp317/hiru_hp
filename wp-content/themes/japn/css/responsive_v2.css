@@ -60,7 +60,7 @@
         position: fixed;
         left: 0;
         width: 100%;
-        background-color: #fffae5;
+        background-color: #fcffea;
         display: none;
         top: 70px;
         clear: both;
@@ -72,7 +72,35 @@
         padding: 10px 27px !important;
         text-align: center;
         color: #000 !important;
+		border-bottom: 1px solid #C2A89866;
     }
+	
+	.navbar-nav .nav-link span {
+		position: relative;
+		padding-bottom: 5px;
+		color: #8A6D5B;
+		font-family: 'Noto Sans JP';
+		font-weight: 600;
+	}
+	
+	.navbar-nav .nav-link label {
+		display: block;
+		text-align: center;
+		font-family: 'Bickham Script Pro';
+		font-size: 50px;
+		color: #B1937F;
+		margin-bottom: -7px;
+		margin-top: 11px;
+		opacity: 0.2;
+	}
+	
+	.navbar-nav .nav-link img {
+		display: block;
+		width: 30px;
+		position: absolute;
+		top: 38px;
+		right: 10%;
+	}
 
     .navbar-nav .dropdown-item {
         text-align: center;
@@ -123,14 +151,63 @@
         margin: 0px;
         padding: 0px 0 0 0;
     }
-
-    .line-fixed-hp {
-        display: none;
-    }
+	
+	.line-fixed-hp {
+		position: fixed;
+		display: flex;
+		left: 0;
+		right: 0;
+		top: auto;
+		bottom: 0;
+		z-index: 999999;
+		transform: translate(0px, 0px);
+	}
+	
+	.only-mobile {
+		display: unset;
+	}
+	
+	.line-link-hp {
+		width: 50%;
+	}
+	
+	.line-link-hp a {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		height: 84.5px;
+		justify-content: center;
+		color: #fff !important;
+		font-size: 17px;
+		line-height: 25px;
+	}
+	
+	.line-link-hp a br {
+		display: none;
+	}
+	
+	.line-link-hp a img {
+		display: block;
+    	margin: auto;
+	}
+	
+	.line-link-hp a i {
+		display: block;
+    	margin: auto;
+		font-size: 20px;
+	}
+	
+	.line-link-hp a.gradiant_1,
+	.line-link-hp a.gradiant_2 {
+		background: #5E483B !important;
+	}
 
     .banner-block-hp {
         border-width: 10px;
-        background-position: 33% top !important;
+        /* background-image: url(../images/lp_xs_log.png);  */
+        background-position: 30% top !important;
+        background-size:cover;
     }
 
     .banner-middle-hp {
@@ -140,7 +217,7 @@
 
     .banner-title-left-hp {
         font-size: 20px;
-        line-height: 20px;
+        line-height: 40px;
     }
 
     .banner-title-right-hp {
@@ -152,7 +229,10 @@
         font-size: 14px;
         height: 40px;
     }
-
+    .custom-select {
+        background-color: rgba(255, 255, 255, 0.8) !important;
+    }
+    
     .banner-input-hp input {
         font-size: 14px;
         height: 40px;
@@ -180,19 +260,23 @@
     }
 
     .banner-right-details-hp h1 {
-        font-size: 100px;
-        line-height: 100px;
+        font-size: 90px;
+        line-height: 70px;
     }
 
     .banner-right-details-hp p {
         font-size: 18px;
         line-height: 30px;
+        text-align:left;
+        padding-top:30px;
     }
 
     .banner-info-hp {
-        padding: 10px 0 50px 0;
+        padding: 10px 0 35px 0;
     }
-
+    .banner-info-hp p{
+        font-size:16px;
+    }
     .banner-overlay-block-hp {
         background: rgba(88, 64, 33, 0.4);
         padding-top: 100px;
@@ -574,7 +658,7 @@
 
     /*--------------- FOOTER_START --------------*/
     .footer-top-hp {
-        padding: 40px 0;
+        padding: 40px 0 110px;
     }
 
     .footer-middle-hp {
@@ -2271,7 +2355,7 @@
 
     /*--------------- FOOTER_START --------------*/
     .footer-top-hp {
-        padding: 40px 0;
+        padding: 40px 0 110px;
     }
 
     .footer-middle-hp {
@@ -3621,7 +3705,7 @@
     }
 
     .banner-right-details-hp h1 {
-        font-size: 130px;
+        font-size: 100px;
         line-height: 130px;
     }
 
@@ -3994,7 +4078,7 @@
 
     /*--------------- FOOTER_START --------------*/
     .footer-top-hp {
-        padding: 40px 0;
+        padding: 40px 0 110px;
     }
 
     .footer-left-hp {

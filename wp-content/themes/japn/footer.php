@@ -13,7 +13,7 @@
 <!-- FOOTER_START -->
 <footer id="footer">
     <div class="back-to-top-hp" id="gototop">
-        <a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/backtotop.svg"
+        <a href="<?php echo get_site_url(); ?>"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/backtotop.png"
                 alt="" /></a>
     </div>
     <div class="footer-top-hp">
@@ -26,12 +26,12 @@
                             <div class="footer-links-hp">
                                 <ul>
                                     <li><a href="<?php echo get_site_url() ?>/job_list?district_val=北海道">北海道</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=青森县">青森</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=岩手县">岩手</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=秋田县">秋田</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=宮城县">宮城</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=山形县">山形</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=福島县">福島</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=青森县">青森県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=岩手县">岩手県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=秋田县">秋田県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=宮城县">宮城県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=山形县">山形県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=福島县">福島県</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="<?php echo get_site_url() ?>/job_list?district_val=茨城県">茨城県</a></li>
@@ -41,50 +41,48 @@
                                     <li><a href="<?php echo get_site_url() ?>/job_list?district_val=千葉県">千葉県</a></li>
                                     <li><a href="<?php echo get_site_url() ?>/job_list?district_val=東京都">東京都</a></li>
                                     <li><a href="<?php echo get_site_url() ?>/job_list?district_val=神奈川県">神奈川県</a></li>
-
-
                                 </ul>
                                 <ul>
 
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=山梨">山梨</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=長野">長野</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=新潟">新潟</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=富山">富山</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=石川">石川</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=福井">福井</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=静岡">静岡</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=愛知">愛知</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=岐阜">岐阜</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=三重">三重</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=山梨">山梨県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=長野">長野県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=新潟">新潟県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=富山">富山県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=石川">石川県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=福井">福井県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=静岡">静岡県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=愛知">愛知県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=岐阜">岐阜県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=三重">三重県</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=滋賀">滋賀</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=京都">京都</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=大阪">大阪</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=兵庫">兵庫</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=奈良">奈良</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=和歌山">和歌山</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=滋賀">滋賀県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=京都">京都府</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=大阪">大阪府</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=兵庫">兵庫県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=奈良">奈良県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=和歌山">和歌山県</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=鳥取">鳥取</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=島根">島根</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=岡山">岡山</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=広島">広島</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=山口">山口</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=香川">香川</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=愛媛">愛媛</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=徳島">徳島</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=高知">高知</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=鳥取">鳥取県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=島根">島根県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=岡山">岡山県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=広島">広島県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=山口">山口県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=香川">香川県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=愛媛">愛媛県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=徳島">徳島県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=高知">高知県</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=福岡">福岡</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=佐賀">佐賀</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=長崎">長崎</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=熊本">熊本</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=大分">大分</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=宮崎">宮崎</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=鹿児島">鹿児島</a></li>
-                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=沖縄">沖縄</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=福岡">福岡県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=佐賀">佐賀県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=長崎">長崎県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=熊本">熊本県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=大分">大分県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=宮崎">宮崎県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=鹿児島">鹿児島県</a></li>
+                                    <li><a href="<?php echo get_site_url() ?>/job_list?district_val=沖縄">沖縄県</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -93,7 +91,7 @@
                                 <ul>
                                     <li><a href="<?php echo get_site_url()?>/about">昼ナビとは？</a></li>
                                     <!-- <li><a href="<?php echo get_site_url()?>/qa">昼ナビからのお知らせ</a></li> -->
-                                    <li><a href="<?php echo get_site_url()?>/column">昼ナビコラム</a></li>
+                                    <li><a href="<?php echo get_site_url()?>/informations">昼ナビコラム</a></li>
                                     <!-- <li><a href="<?php echo get_site_url()?>/advisor">企業のご担当者様へ</a></li> -->
                                     <li><a href="<?php echo get_site_url()?>/qa">お問合せ</a></li>
                                 </ul>
@@ -111,7 +109,7 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    <div class="copyright-hp">Copyright © Hirunav inc. All Rights Reserved.</div>
+                    <div class="copyright-hp">©2021 HiruNavi</div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -122,7 +120,7 @@
 </footer>
 <!-- FOOTER_END -->
 </div><!-- <div class="wrapper"> -->
-</div> <!-- <div id="page" class="site"> -->
+<!-- </div> <div id="page" class="site"> -->
 <?php wp_footer(); ?>
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/owl.carousel.min.js"></script>

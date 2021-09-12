@@ -14,6 +14,15 @@
 <html <?php language_attributes();?>>
 
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TSHGXSX');</script>
+<!-- End Google Tag Manager -->
+
+
     <meta charset="<?php bloginfo('charset');?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -33,6 +42,7 @@
         type="text/css">
         <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/stylesheet_v2.css" rel="stylesheet" type="text/css">
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive_v2.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" type="image/png" href="<?php echo get_stylesheet_directory_uri(); ?>/images/fav.png">
     <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
     <?php if(wp_is_mobile()) { ?>
         <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.js"></script>
@@ -58,6 +68,10 @@
 </head>
 <?php get_template_part('google-for-jobs'); ?>
 <body <?php body_class();?>>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSHGXSX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <?php wp_body_open();?>
 <div id="page" class="site">
@@ -76,19 +90,35 @@
                         <nav class="navbar navbar-expand-lg navbar-light">
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                               	<ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                      	<a class="nav-link" href="<?php echo get_site_url() ?>/about">昼ナビとは</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      	<a class="nav-link" href="<?php echo get_site_url() ?>/job_list">お仕事情報 </a>
-                                    </li>
-                                    <li class="nav-item">
-                                      	<a class="nav-link" href="<?php echo get_site_url() ?>/informations">コラム</a>
-                                    </li>
-                                    <li class="nav-item">
-                                      	<a class="nav-link" href="<?php echo get_site_url() ?>/qa">よくあるご質問</a>
-                                    </li>
-                              	</ul>
+									<li class="nav-item">
+										<a class="nav-link" href="<?php echo get_site_url() ?>/about">
+											<label> Hiru Navi </label>
+											<span>昼ナビとは</span>
+											<img src="<?php echo get_stylesheet_directory_uri()?>/images/ic_arrow.png" alt="" />
+										</a>
+									</li>
+									<li class="nav-item">												
+										<a class="nav-link" href="<?php echo get_site_url() ?>/job_list">
+											<label> Job information </label>
+											<span>お仕事情報</span>
+											<img src="<?php echo get_stylesheet_directory_uri()?>/images/ic_arrow.png" alt="" />
+										</a>
+									</li>
+									<li class="nav-item">												
+										<a class="nav-link" href="<?php echo get_site_url() ?>/informations">
+											<label> Column </label>
+											<span>コラム</span>
+											<img src="<?php echo get_stylesheet_directory_uri()?>/images/ic_arrow.png" alt="" />
+										</a>
+									</li>
+									<li class="nav-item">												
+										<a class="nav-link" href="<?php echo get_site_url() ?>/qa">
+											<label> Faq </label>
+											<span>よくあるご質問</span>
+											<img src="<?php echo get_stylesheet_directory_uri()?>/images/ic_arrow.png" alt="" />
+										</a>
+									</li>
+								</ul>
                             </div>
                             <div class="header-right-hp">
                                 <div class="contact-btn-main-hp">

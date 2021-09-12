@@ -169,6 +169,118 @@ $(document).ready(function() {
         }
     });
     $('map').imageMapResize();
+
+    window.addEventListener('resize', function(event) {
+        $('img[usemap]').mapster({
+            fillOpacity: 0.8,
+            render_highlight: {
+                fillColor: '7B6A5F',
+                fill: false,
+                stroke: false
+            },
+            render_select: {
+                // fillColor: '7B6A5F',
+                altImage: '<?php echo get_stylesheet_directory_uri(); ?>/images/location_alt.png',
+                stroke: false
+            },
+            // fillColor: '7B6A5F',
+            stroke: true,
+            // strokeColor: '7B6A5F',
+            showToolTip: true,
+            mapKey: 'joint',
+            isSelectable: false,
+            singleSelect: false,
+            clickNavigate: true,
+            onMouseout: function(ev) {
+                var selectArea;
+                // if (reg_array_1.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_1;
+                // }
+                // if (reg_array_2.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_2;
+                // }
+                // if (reg_array_3.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_3;
+                // }
+                // if (reg_array_4.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_4;
+                // }
+                // if (reg_array_5.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_5;
+                // }
+                // if (reg_array_6.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_6;
+                // }
+                // if (reg_array_7.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_7;
+                // }
+                // if (reg_array_8.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_8;
+                // }
+                // if (reg_array_9.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_9;
+                // }
+                if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(
+                        window.navigator
+                        .userAgent) || /Windows Phone/i.test(window.navigator.userAgent) ||
+                    /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window
+                        .navigator
+                        .userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)
+                    ) {
+                    return;
+                }
+                $('img[usemap]').mapster('set', false, ev.key);
+                // $('img[usemap]').mapster('set', false, selectArea.join(','));
+            },
+            onMouseover: function(ev) {
+                // var selectArea;
+                // if (reg_array_1.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_1;
+                // }
+                // if (reg_array_2.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_2;
+                // }
+                // if (reg_array_3.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_3;
+                // }
+                // if (reg_array_4.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_4;
+                // }
+                // if (reg_array_5.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_5;
+                // }
+                // if (reg_array_6.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_6;
+                // }
+                // if (reg_array_7.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_7;
+                // }
+                // if (reg_array_8.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_8;
+                // }
+                // if (reg_array_9.findIndex(it => it == ev.key) > -1) {
+                //     selectArea = reg_array_9;
+                // }
+                // // $('img[usemap]').mapster('set', false);
+                if (/iP(od|hone)/i.test(window.navigator.userAgent) || /IEMobile/i.test(
+                        window.navigator
+                        .userAgent) || /Windows Phone/i.test(window.navigator.userAgent) ||
+                    /BlackBerry/i.test(window.navigator.userAgent) || /BB10/i.test(window
+                        .navigator
+                        .userAgent) || /Android.*Mobile/i.test(window.navigator.userAgent)
+                    ) {
+                    return;
+                }
+                $('img[usemap]').mapster('set', true, ev.key);
+                // $('img[usemap]').mapster('set', true, selectArea.join(','));
+                // console.log(selectArea.join(','));
+                // console.log(ev.key)
+
+            }
+        });
+        $('map').imageMapResize();
+    }, true);
+
     // AbstractChosen.browser_is_supported = function() { return true; }
     <?php if(!wp_is_mobile()) { ?>
     $("#job_spec").chosen({
@@ -176,7 +288,7 @@ $(document).ready(function() {
         disable_search_threshold: 0
     });
     <?php } else { ?>
-        // $("#job_spec").selectmenu();
+    // $("#job_spec").selectmenu();
     <?php } ?>
 
     // // if ($('.chosen-container').length > 0) {
@@ -223,8 +335,7 @@ global $wpdb;
     <!-- CONTAIN_START -->
     <section id="contain">
         <?php get_sidebar('rightbar') ?>
-        <div class="banner-block-hp"
-            style="background:url(<?php echo get_stylesheet_directory_uri(); ?>/images/banner.png) no-repeat top center; background-size:cover;">
+        <div class="banner-block-hp">
             <div class="banner-overlay-block-hp">
                 <div class="container">
                     <div class="row">
@@ -299,12 +410,11 @@ global $wpdb;
                                         </select>
                                     </div>
                                     <div class="banner-select-hp ui-field-contain">
-                                        <select class="custom-select"  id="job_spec"
-                                            <?php if(!wp_is_mobile()) { echo 'data-placeholder="特長コードから探す"'; }
-                                            else { echo 'data-placeholder="true"'; }?>
-                                            multiple="multiple" data-native-menu="false">
+                                        <select class="custom-select" id="job_spec" <?php if(!wp_is_mobile()) { echo 'data-placeholder="特長コード"'; }
+                                            else { echo 'data-placeholder="true"'; }?> multiple="multiple"
+                                            data-native-menu="false">
                                             <?php if(wp_is_mobile()) { ?>
-                                            <option value="" selected="selected" disabled="disabled">特長コードから探す</option>
+                                            <option value="" selected="selected" disabled="disabled">特長コード</option>
                                             <?php }?>
 
                                             <option value="駅チカ">駅チカ</option>
@@ -331,7 +441,12 @@ global $wpdb;
                                 <div class="banner-right-hp">
                                     <div class="banner-right-in-hp">
                                         <div class="banner-right-details-hp">
+                                            <?php if(wp_is_mobile()) { ?>
+                                            <h1 class="text-left mb-1"><span>Hiru</span> <br /> &nbsp;&nbsp;Navi
+                                            </h1>
+                                            <?php } else { ?>
                                             <h1><span>Hiru</span> Navi</h1>
+                                            <?php } ?>
                                             <p>〜最短<span>2週間</span>で昼職へ〜</p>
                                             <div class="banner-info-hp">
                                                 <p>
@@ -609,11 +724,11 @@ global $wpdb;
                                             <area alt="埼玉県" title="埼玉県" joint="saitama"
                                                 href="<?php echo get_site_url() ?>/job_list?district_val=埼玉県"
                                                 coords="421,196,418,210,444,210,448,196" shape="poly">
-                                            <area alt="東京都" title="東京都" joint="tokyo"
-                                                href="<?php echo get_site_url() ?>/job_list?district_val=東京都"
-                                                coords="396,212,388,245,407,245,415,212" shape="poly">
                                             <area alt="神奈川県" title="神奈川県" joint="kanagawa"
                                                 href="<?php echo get_site_url() ?>/job_list?district_val=神奈川県"
+                                                coords="396,212,388,245,407,245,415,212" shape="poly">
+                                            <area alt="東京都" title="東京都" joint="tokyo"
+                                                href="<?php echo get_site_url() ?>/job_list?district_val=東京都"
                                                 coords="418,213,414,228,440,228,445,213" shape="poly">
                                             <area alt="千葉県" title="千葉県" joint="chiba"
                                                 href="<?php echo get_site_url() ?>/job_list?district_val=千葉県"

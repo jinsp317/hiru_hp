@@ -3,12 +3,18 @@ $(".mobile-menu-icon-hp").click(function() {
 	$(this).toggleClass("open");
 	if($(".menu-toggle-btn").hasClass("open") == true){
 		$(".menu-text-hp").text("CLOSE");	
+		$(".navigation").fadeToggle('fast');
+		// $(".navigation").css('right', '0');;
+
 	}
 	else
 	{
 		$(".menu-text-hp").text("MENU");	
+		$(".navigation").fadeToggle('fast');
+		// $(".navigation").css('right', '-1000px');;
 	}
-	$(".navigation").slideToggle();
+	// $(".navigation").slideToggle();
+	// $(".navigation").css('right', '0');;
 	$(".overlay-mobile-menu-hp").fadeToggle();
 });
 
